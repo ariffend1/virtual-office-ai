@@ -267,10 +267,17 @@ async def get_index(module: Optional[str] = "studio"):
 
 @views_router.get("/view/{file_path:path}", response_class=HTMLResponse)
 async def serve_view_file(file_path: str):
-    """Serves individual standalone interactive design module HTML files."""
+    """Serves individual standalone interactive design module HTML files with client engine injected."""
     target_path = settings.base_dir / file_path
     if not target_path.exists() or not target_path.is_file():
         raise HTTPException(status_code=404, detail=f"Module view path not found: {file_path}")
     
     content = target_path.read_text(encoding="utf-8", errors="ignore")
+    # Inject unified client script before </body> tag if present
+    injection = '<script src="/static/app/api/views_client.js"></script>'
+    if "</body>" in content:
+        content = content.replace("</body>", f"{injection}\n</body>")
+    else:
+        content += f"\n{injection}"
+
     return HTMLResponse(content=content)

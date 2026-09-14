@@ -58,7 +58,7 @@
 <p class="font-body-sm text-body-sm text-on-surface-variant">Continuous verification gates satisfied across all active virtual staging workers.</p>
 </div>
 </div>
-<button class="bg-surface-container-lowest hover:bg-surface-container px-space-md py-1 rounded text-on-surface font-code-sm text-code-sm shadow-sm transition-colors flex items-center gap-1">
+<button id="btn-reevaluate-audit" class="bg-surface-container-lowest hover:bg-surface-container px-space-md py-1 rounded text-on-surface font-code-sm text-code-sm shadow-sm transition-colors flex items-center gap-1">
 <span class="material-symbols-outlined text-[14px]">refresh</span>
 <span>Re-evaluate</span>
 </button>
@@ -365,7 +365,7 @@
 </div>
 <!-- Primary & Secondary CTA Buttons -->
 <div class="flex flex-col gap-space-xs">
-<button class="w-full h-10 rounded-lg bg-primary hover:bg-surface-container-highest hover:text-on-surface text-on-primary font-body-sm text-body-sm font-semibold flex items-center justify-center gap-space-sm shadow-md transition-all">
+<button id="btn-approve-release" class="w-full h-10 rounded-lg bg-primary hover:bg-surface-container-highest hover:text-on-surface text-on-primary font-body-sm text-body-sm font-semibold flex items-center justify-center gap-space-sm shadow-md transition-all">
 <span class="material-symbols-outlined text-[20px] text-secondary-container">rocket_launch</span>
 <span>Approve &amp; Trigger Production Deploy (v2.4.0)</span>
 </button>
@@ -374,7 +374,7 @@
 <span class="material-symbols-outlined text-[16px]">download</span>
 <span>Download .tar.gz</span>
 </button>
-<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-code-sm text-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<button id="btn-test-sandbox" class="h-8 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-code-sm text-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
 <span class="material-symbols-outlined text-[16px]">science</span>
 <span>Re-test in Sandbox</span>
 </button>

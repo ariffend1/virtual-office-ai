@@ -14,8 +14,13 @@ class Settings(BaseModel):
     # LLM Runners Configuration
     ollama_url: str = Field(default_factory=lambda: os.environ.get("OLLAMA_URL", "http://localhost:11434"))
     ollama_model: str = Field(default_factory=lambda: os.environ.get("OLLAMA_MODEL", "qwen2.5-coder:7b"))
-    openai_api_key: str = Field(default_factory=lambda: os.environ.get("OPENAI_API_KEY", ""))
-    openai_model: str = Field(default_factory=lambda: os.environ.get("OPENAI_MODEL", "gpt-4o"))
+    
+    # OpenAI-compatible / OmniRoute LLM Gateway Configuration
+    openai_base_url: str = Field(default_factory=lambda: os.environ.get("OPENAI_BASE_URL", "http://127.0.0.1:20128/v1"))
+    openai_fallback_url: str = Field(default_factory=lambda: os.environ.get("OPENAI_FALLBACK_URL", "http://192.168.5.187:20128/v1"))
+    openai_api_key: str = Field(default_factory=lambda: os.environ.get("OPENAI_API_KEY", "sk-omniroute-cortxos"))
+    openai_model: str = Field(default_factory=lambda: os.environ.get("OPENAI_MODEL", "claude-3-7-sonnet"))
+    
     anthropic_api_key: str = Field(default_factory=lambda: os.environ.get("ANTHROPIC_API_KEY", ""))
     anthropic_model: str = Field(default_factory=lambda: os.environ.get("ANTHROPIC_MODEL", "claude-3-5-sonnet-20241022"))
     

@@ -56,6 +56,11 @@ class TelemetryPayload(BaseModel):
     cost: float
     active_threads: int = 4
     subprocesses_healthy: int = 12
+    cpu_percent: float = 0.0
+    ram_percent: float = 0.0
+    ram_used_mb: float = 0.0
+    disk_percent: float = 0.0
+    total_tasks: int = 0
     timestamp: int
 
 class StreamMessage(BaseModel):

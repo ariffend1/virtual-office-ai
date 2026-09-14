@@ -8,7 +8,7 @@ from app.execution.tools.registry import tool_registry
 from app.models.schemas import ExecutionResult
 
 class EngineDispatcher:
-    """Intelligent dispatcher resolving runner strategy and real tool execution."""
+    """Intelligent dispatcher resolving runner strategy and real tool execution with graceful neural fallback."""
 
     def __init__(self):
         self.mock_runner = MockNeuralRunner()
@@ -41,31 +41,50 @@ class EngineDispatcher:
 
         # Explicit runner overrides
         if runner_choice == "ollama":
-            return await self.ollama_runner.run(agent_id, prompt, context)
-        elif runner_choice == "openai":
-            return await self.openai_runner.run(agent_id, prompt, context)
-        elif runner_choice == "anthropic":
-            return await self.anthropic_runner.run(agent_id, prompt, context)
-        elif runner_choice == "mock":
-            return await self.mock_runner.run(agent_id, prompt, context)
-
-        # 'auto' strategy: 1. Try Ollama -> 2. Try OpenAI/Anthropic (if keys set) -> 3. High-speed Mock Neural Sim
-        if await self.ollama_runner.is_available():
             res = await self.ollama_runner.run(agent_id, prompt, context)
             if res.status == "success":
                 return res
+            # If explicit ollama fails, return result or fallback
+            return res
+        elif runner_choice in ("openai", "gateway", "omniroute"):
+            res = await self.openai_runner.run(agent_id, prompt, context)
+            if res.status == "success":
+                return res
+            # Fallback to mock if requested gateway is offline
+            mock_res = await self.mock_runner.run(agent_id, prompt, context)
+            mock_res.metadata["fallback_from"] = runner_choice
+            mock_res.metadata["gateway_error"] = res.response
+            return mock_res
+        elif runner_choice == "anthropic":
+            res = await self.anthropic_runner.run(agent_id, prompt, context)
+            if res.status == "success":
+                return res
+            mock_res = await self.mock_runner.run(agent_id, prompt, context)
+            mock_res.metadata["fallback_from"] = runner_choice
+            return mock_res
+        elif runner_choice == "mock":
+            return await self.mock_runner.run(agent_id, prompt, context)
 
+        # 'auto' strategy:
+        # 1. Try OpenAI/OmniRoute gateway (if available)
         if await self.openai_runner.is_available():
             res = await self.openai_runner.run(agent_id, prompt, context)
             if res.status == "success":
                 return res
 
+        # 2. Try Ollama (if available)
+        if await self.ollama_runner.is_available():
+            res = await self.ollama_runner.run(agent_id, prompt, context)
+            if res.status == "success":
+                return res
+
+        # 3. Try Anthropic (if available)
         if await self.anthropic_runner.is_available():
             res = await self.anthropic_runner.run(agent_id, prompt, context)
             if res.status == "success":
                 return res
 
-        # Deterministic simulation fallback
+        # 4. High-speed deterministic neural simulation fallback
         return await self.mock_runner.run(agent_id, prompt, context)
 
 engine_dispatcher = EngineDispatcher()

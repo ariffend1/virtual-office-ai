@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CortxOS — Multi-Agent Studio &amp; Neural Simulation Environment</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cortx: {
+              bg: '#eceff4',
+              surface: '#f8fafc',
+              panel: 'rgba(255, 255, 255, 0.82)',
+              panelBorder: 'rgba(226, 232, 240, 0.85)',
+              accentOrange: '#f97316',
+              accentGreen: '#10b981',
+              accentPurple: '#8b5cf6',
+              accentCyan: '#06b6d4',
+              dark: '#0f172a'
+            }
+          },
+          fontFamily: {
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(148, 163, 184, 0.18)',
+            'float': '0 14px 34px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06)',
+            'isometric': '-16px 20px 32px -8px rgba(15, 23, 42, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Isometric Scene, Glass Panels & Ambient Pulsing -->
+<style data-purpose="custom-isometric-and-animations">
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(0.4deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4)); }
+      50% { opacity: 0.9; filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.75)); }
+    }
+
+    @keyframes scanline {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 0% 200%; }
+    }
+
+    .animate-float-agent {
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+
+    .animate-pulse-glow {
+      animation: pulseGlow 2.8s ease-in-out infinite;
+    }
+
+    /* Isometric Floor Grid */
+    .isometric-stage {
+      transform: rotateX(54deg) rotateZ(-40deg) rotateY(4deg) translateZ(0);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+
+    /* Subtle grid pattern */
+    .bg-iso-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+    }
+
+    /* Custom thin scrollbars for terminal windows */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-[#eaedf2] text-slate-700 font-sans h-screen w-screen overflow-hidden select-none flex flex-col antialiased">
+<!-- BEGIN: TopBar -->
+<header class="h-10 border-b border-slate-200/80 bg-white/70 backdrop-blur-md px-3 flex items-center justify-between text-xs shrink-0 z-50" data-purpose="top-navigation-bar">
+<!-- Brand & Session Info -->
+<div class="flex items-center space-x-3">
+<div class="flex items-center gap-1.5 font-bold tracking-tight text-slate-800">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-emerald-200"></span>
+<span class="text-sm font-semibold tracking-wide">cortx<span class="text-emerald-600">os</span></span>
+</div>
+<span class="text-slate-300">|</span>
+<div class="flex items-center space-x-2 text-slate-500">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 text-slate-600 border border-slate-200/60">
+          SAMS Studio v2.4
+        </span>
+<span class="text-slate-400">/</span>
+<span class="text-slate-600 font-mono text-[11px]">Systems Engineer • Claude 3.5 Sonnet</span>
+</div>
+</div>
+<!-- Active Cluster Telemetry -->
+<div class="hidden md:flex items-center space-x-4 text-[11px] font-mono text-slate-500">
+<div class="flex items-center gap-1">
+<span class="text-slate-400">FPS:</span>
+<span class="text-slate-700 font-semibold">60</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-slate-400">LATENCY:</span>
+<span class="text-emerald-600 font-medium">32ms</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-slate-400">TOKENS:</span>
+<span class="text-slate-700 font-semibold">48,210 ($0.076)</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+<span>4 AGENTS ACTIVE</span>
+</div>
+</div>
+<!-- Right Controls: Mode Toggle & Training Room Switch -->
+<div class="flex items-center space-x-2">
+<!-- Mode toggles -->
+<div class="flex items-center bg-slate-100/90 p-0.5 rounded-lg border border-slate-200 text-[11px]">
+<button class="px-2.5 py-0.5 rounded-md bg-white font-medium shadow-xs text-slate-800">Auto</button>
+<button class="px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-800">Spot</button>
+<button class="px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-800">Manual</button>
+</div>
+<!-- Training room selector button -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 rounded-lg text-xs font-medium transition shadow-xs">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Training Room</span>
+</button>
+<!-- User avatar pill -->
+<div class="w-6 h-6 rounded-full bg-linear-to-tr from-indigo-500 to-violet-400 text-white flex items-center justify-center text-[10px] font-bold">
+        AX
+      </div>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Main Viewport Layout -->
+<div class="flex-1 flex overflow-hidden relative">
+<!-- BEGIN: FloatingLeftDock -->
+<aside class="w-12 m-2 mr-0 bg-white/70 backdrop-blur-xl border border-white/80 shadow-glass rounded-2xl flex flex-col items-center py-3 gap-3 z-40 shrink-0" data-purpose="floating-agent-dock">
+<!-- Active App Icon -->
+<div class="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-md">
+        ⌘
+      </div>
+<div class="w-6 h-px bg-slate-200/80"></div>
+<!-- Agent Avatars Quick Dock -->
+<div class="flex flex-col gap-2.5">
+<!-- Orange: Systems Engineer -->
+<button class="relative group p-0.5" title="Systems Engineer (Claude 3.5)">
+<div class="w-8 h-8 rounded-xl bg-linear-to-br from-amber-400 to-orange-500 shadow-sm flex items-center justify-center text-white ring-2 ring-orange-400/80">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+</div>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white"></span>
+</button>
+<!-- Green: Auditor / Planner -->
+<button class="relative group p-0.5" title="Auditor &amp; Planner (GPT-4o)">
+<div class="w-8 h-8 rounded-xl bg-linear-to-br from-emerald-400 to-teal-600 shadow-sm flex items-center justify-center text-white hover:scale-105 transition-transform">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+</div>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-1 ring-white"></span>
+</button>
+<!-- Purple: Researcher -->
+<button class="relative group p-0.5" title="Researcher (Gemini Pro)">
+<div class="w-8 h-8 rounded-xl bg-linear-to-br from-purple-400 to-indigo-600 shadow-sm flex items-center justify-center text-white hover:scale-105 transition-transform">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+</div>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-purple-500 ring-1 ring-white"></span>
+</button>
+<!-- Cyan: Pipeline / Automation -->
+<button class="relative group p-0.5" title="Pipeline &amp; Synthesis Agent">
+<div class="w-8 h-8 rounded-xl bg-linear-to-br from-cyan-400 to-blue-600 shadow-sm flex items-center justify-center text-white hover:scale-105 transition-transform">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+</div>
+</button>
+</div>
+<div class="w-6 h-px bg-slate-200/80 my-auto"></div>
+<!-- Utility Tools -->
+<div class="flex flex-col gap-2 text-slate-400">
+<button class="w-7 h-7 flex items-center justify-center hover:text-slate-700 hover:bg-slate-100 rounded-lg" title="Recenter View">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M3 12h3m12 0h3M12 3v3m0 12v3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:text-slate-700 hover:bg-slate-100 rounded-lg" title="Layers / Nodes">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="w-7 h-7 flex items-center justify-center hover:text-slate-700 hover:bg-slate-100 rounded-lg" title="Settings">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</aside>
+<!-- END: FloatingLeftDock -->
+<!-- BEGIN: IsometricCanvasStage -->
+<!-- Left interactive 3D / Isometric AI Agent Workspace Room -->
+<main class="flex-1 relative overflow-hidden flex items-center justify-center" data-purpose="isometric-agent-workspace">
+<!-- Floor / Grid Lighting Effect -->
+<div class="absolute inset-0 bg-radial from-slate-100 via-[#e9edf3] to-[#dfe5ed] opacity-90"></div>
+<!-- Ambient Glow spots -->
+<div class="absolute w-[500px] h-[500px] rounded-full bg-indigo-200/40 blur-3xl pointer-events-none -top-20 -left-20"></div>
+<div class="absolute w-[450px] h-[450px] rounded-full bg-emerald-200/35 blur-3xl pointer-events-none -bottom-20 left-1/3"></div>
+<!-- Isometric 3D Container -->
+<div class="relative w-[850px] h-[650px] flex items-center justify-center">
+<!-- Physical Isometric Stage Platform -->
+<div class="isometric-stage absolute w-[620px] h-[540px] bg-white/70 rounded-3xl border border-white/90 shadow-isometric backdrop-blur-xs bg-iso-grid">
+<!-- Floor boundary accents -->
+<div class="absolute inset-0 rounded-3xl border-2 border-slate-200/50"></div>
+<div class="absolute top-6 left-6 right-6 bottom-6 rounded-2xl border border-dashed border-indigo-200/70 pointer-events-none"></div>
+<!-- Connecting Light Lines (Data pipelines on floor) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-70" fill="none" viewbox="0 0 620 540">
+<path d="M 180 280 L 320 220 L 460 270" stroke="url(#cyanGlow)" stroke-dasharray="6 4" stroke-width="2.5"></path>
+<path d="M 320 220 L 320 370 L 210 420" stroke="url(#purpleGlow)" stroke-width="2.5"></path>
+<path d="M 320 220 L 480 160" stroke="#cbd5e1" stroke-width="1.5"></path>
+<defs>
+<lineargradient id="cyanGlow" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#06b6d4"></stop>
+<stop offset="100%" stop-color="#3b82f6"></stop>
+</lineargradient>
+<lineargradient id="purpleGlow" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#8b5cf6"></stop>
+<stop offset="100%" stop-color="#ec4899"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Embedded Ground Nodes -->
+<div class="absolute top-[215px] left-[315px] w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-indigo-200/80 animate-ping"></div>
+<div class="absolute top-[275px] left-[175px] w-3 h-3 rounded-full bg-orange-400 ring-4 ring-orange-200/80"></div>
+<div class="absolute top-[265px] left-[455px] w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-emerald-200/80"></div>
+</div>
+<!-- SIMULATED 3D AGENT 1: Systems Engineer (Orange Robot at glowing terminal) -->
+<div class="absolute top-[240px] left-[120px] flex flex-col items-center z-20 group cursor-pointer transition-all duration-300 hover:scale-105" data-purpose="agent-avatar-orange">
+<!-- Floating Agent Tag -->
+<div class="mb-2 px-2.5 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-[11px] font-medium tracking-wide shadow-lg border border-slate-700/60 flex items-center gap-1.5 animate-bounce">
+<span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+<span>visor agents eyes anima...</span>
+</div>
+<div class="relative flex items-end">
+<!-- Orange 3D-styled Robot Model -->
+<div class="relative w-16 h-24 flex flex-col items-center animate-float-agent">
+<!-- Robot Head with Visor -->
+<div class="w-12 h-10 rounded-2xl bg-linear-to-b from-orange-400 via-orange-500 to-amber-600 shadow-md border border-orange-300 relative flex items-center justify-center">
+<!-- Visor screen -->
+<div class="w-9 h-5 rounded-lg bg-slate-950 flex items-center justify-center px-1 shadow-inner">
+<div class="w-2 h-1 rounded-full bg-cyan-400 shadow-[0_0_6px_#22d3ee] mr-1"></div>
+<div class="w-2 h-1 rounded-full bg-cyan-400 shadow-[0_0_6px_#22d3ee]"></div>
+</div>
+<!-- Mini ear antenna -->
+<div class="absolute -right-1 w-1.5 h-3 rounded bg-amber-600"></div>
+<div class="absolute -left-1 w-1.5 h-3 rounded bg-amber-600"></div>
+</div>
+<!-- Robot Body / Torso -->
+<div class="w-10 h-11 -mt-1 rounded-xl bg-linear-to-b from-orange-500 to-amber-700 shadow-md flex flex-col items-center pt-2 relative">
+<div class="w-5 h-3 rounded bg-orange-200/30 border border-white/20"></div>
+<!-- Arms reaching forward to console -->
+<div class="absolute -right-2 top-2 w-3.5 h-7 rounded-full bg-orange-600 rotate-25 shadow"></div>
+<div class="absolute -left-2 top-2 w-3.5 h-7 rounded-full bg-orange-600 -rotate-25 shadow"></div>
+</div>
+<!-- Robot Legs -->
+<div class="flex gap-2 -mt-1">
+<div class="w-3.5 h-5 rounded-b-md bg-amber-800 shadow"></div>
+<div class="w-3.5 h-5 rounded-b-md bg-amber-800 shadow"></div>
+</div>
+</div>
+<!-- Glowing Holographic Desk Terminal -->
+<div class="ml-2 relative">
+<div class="w-28 h-36 rounded-xl bg-linear-to-tr from-white/90 to-white/40 backdrop-blur-md border border-white p-2 shadow-2xl flex flex-col justify-between transform rotate-y-6 rotate-x-2">
+<div class="flex items-center justify-between border-b border-slate-200/80 pb-1">
+<span class="text-[9px] font-mono font-semibold text-slate-500">SAM5 Terminal</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+</div>
+<div class="font-mono text-[8px] text-slate-600 space-y-1 overflow-hidden leading-tight">
+<p class="text-orange-600">&gt; yarn test:matrix</p>
+<p>✔ 2,132 tests passed</p>
+<p class="text-emerald-600">build verified</p>
+<p class="text-slate-400 truncate">Writing macos.app...</p>
+</div>
+<!-- Mini keyboard surface -->
+<div class="h-4 bg-slate-100 rounded border border-slate-200 flex items-center justify-center gap-0.5 px-1">
+<div class="h-1.5 w-full bg-slate-300 rounded-xs"></div>
+</div>
+</div>
+<!-- Stand -->
+<div class="w-4 h-10 bg-slate-300 mx-auto -mt-1 shadow-sm"></div>
+<div class="w-14 h-3 rounded-full bg-slate-400/60 mx-auto -mt-1 blur-[1px]"></div>
+</div>
+</div>
+<!-- Floor Shadow -->
+<div class="w-32 h-6 bg-slate-400/20 rounded-full blur-md -mt-2"></div>
+</div>
+<!-- SIMULATED 3D AGENT 2: Auditor / Planner (Glossy Green Bot) -->
+<div class="absolute top-[170px] left-[380px] flex flex-col items-center z-15 group cursor-pointer transition-all duration-300 hover:scale-105" data-purpose="agent-avatar-green">
+<!-- Floating Badge -->
+<div class="mb-2 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-[11px] font-medium tracking-wide shadow-lg border border-slate-700/60 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Auditor / Planner</span>
+</div>
+<!-- Glossy Green Robot Avatar -->
+<div class="relative w-16 h-24 flex flex-col items-center animate-float-agent" style="animation-delay: 1.5s;">
+<!-- Glossy Rounded Head -->
+<div class="w-12 h-11 rounded-2xl bg-linear-to-b from-emerald-300 via-emerald-500 to-teal-600 shadow-lg border border-emerald-200 relative flex items-center justify-center">
+<!-- Digital face visor -->
+<div class="w-8 h-5 rounded-lg bg-slate-950 flex items-center justify-around px-1 shadow-inner">
+<div class="w-2 h-2 rounded-sm bg-emerald-300 shadow-[0_0_8px_#6ee7b7]"></div>
+<div class="w-2 h-2 rounded-sm bg-emerald-300 shadow-[0_0_8px_#6ee7b7]"></div>
+</div>
+<!-- Antenna ball -->
+<div class="absolute -top-2 w-2 h-2 rounded-full bg-emerald-300 shadow ring-2 ring-emerald-500"></div>
+</div>
+<!-- Body -->
+<div class="w-10 h-10 -mt-1 rounded-xl bg-linear-to-b from-emerald-500 to-teal-700 shadow-md flex items-center justify-center relative">
+<div class="w-4 h-4 rounded-full border border-white/40 bg-emerald-400/20"></div>
+<!-- Limbs -->
+<div class="absolute -right-2 top-2 w-3 h-6 rounded-full bg-emerald-600 shadow"></div>
+<div class="absolute -left-2 top-2 w-3 h-6 rounded-full bg-emerald-600 shadow"></div>
+</div>
+<!-- Cute Feet -->
+<div class="flex gap-2 -mt-1">
+<div class="w-3.5 h-4 rounded-b-md bg-teal-800 shadow"></div>
+<div class="w-3.5 h-4 rounded-b-md bg-teal-800 shadow"></div>
+</div>
+</div>
+<!-- Floor Shadow -->
+<div class="w-20 h-5 bg-slate-400/25 rounded-full blur-md -mt-1"></div>
+</div>
+<!-- SIMULATED 3D AGENT 3: Researcher (Purple/Violet Bot & Whiteboard) -->
+<div class="absolute top-[310px] left-[260px] flex items-end z-30 group cursor-pointer transition-all duration-300 hover:scale-105" data-purpose="agent-avatar-purple">
+<!-- Floor Shadow -->
+<div class="absolute -bottom-2 left-2 w-44 h-7 bg-slate-500/20 rounded-full blur-md"></div>
+<!-- Whiteboard / Diagram stand -->
+<div class="w-40 h-36 bg-white/90 backdrop-blur-md rounded-xl border border-slate-200/90 shadow-xl p-2.5 flex flex-col justify-between mr-2">
+<div class="flex items-center justify-between text-[8px] font-mono text-slate-400 border-b border-slate-100 pb-1">
+<span>STREAMING • green • Aug 22</span>
+<span class="text-purple-600 font-bold">55 images</span>
+</div>
+<div class="flex-1 py-1 grid grid-cols-3 gap-1">
+<div class="bg-slate-100 rounded border border-slate-200"></div>
+<div class="bg-purple-50 rounded border border-purple-200 flex items-center justify-center">
+<span class="text-[7px] text-purple-700 font-bold">AI.node</span>
+</div>
+<div class="bg-slate-100 rounded border border-slate-200"></div>
+<div class="bg-emerald-50 rounded border border-emerald-200 col-span-2"></div>
+<div class="bg-slate-100 rounded border border-slate-200"></div>
+</div>
+<div class="text-[8px] text-right font-medium text-slate-400 tracking-wider">TO VIEW MORE ➔</div>
+</div>
+<!-- Purple Bot -->
+<div class="flex flex-col items-center animate-float-agent" style="animation-delay: 2.2s;">
+<!-- Badge -->
+<div class="mb-1.5 px-2 py-0.5 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-[10px] font-medium shadow border border-slate-700 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+<span>Researcher</span>
+</div>
+<!-- Purple Body -->
+<div class="w-11 h-10 rounded-2xl bg-linear-to-b from-purple-400 via-indigo-500 to-purple-700 shadow-md border border-purple-300 flex items-center justify-center">
+<div class="w-7 h-4 rounded bg-slate-950 flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-purple-300 mr-1 shadow-[0_0_6px_#c084fc]"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-purple-300 shadow-[0_0_6px_#c084fc]"></div>
+</div>
+</div>
+<div class="w-9 h-8 -mt-1 rounded-xl bg-linear-to-b from-purple-600 to-indigo-800 shadow"></div>
+<div class="flex gap-1.5 -mt-0.5">
+<div class="w-3 h-3.5 rounded-b-md bg-purple-900"></div>
+<div class="w-3 h-3.5 rounded-b-md bg-purple-900"></div>
+</div>
+</div>
+</div>
+<!-- Floating Room Navigation Pill Controls (Bottom Left in screenshot) -->
+<div class="absolute bottom-5 left-6 bg-white/80 backdrop-blur-md border border-white shadow-float rounded-xl px-3 py-1.5 flex items-center space-x-2 text-xs font-medium text-slate-600 z-30" data-purpose="viewport-camera-controls">
+<button class="flex items-center gap-1 px-2 py-1 bg-slate-100 hover:bg-slate-200/80 rounded-md transition text-[11px]">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Fit room</span>
+</button>
+<div class="h-3 w-px bg-slate-200"></div>
+<button class="text-slate-500 hover:text-slate-800 px-1 text-[11px]">Center focus</button>
+<div class="h-3 w-px bg-slate-200"></div>
+<span class="text-[10px] font-mono text-slate-400">100% Zoom</span>
+</div>
+</div>
+</main>
+<!-- END: IsometricCanvasStage -->
+<!-- BEGIN: AgentExecutionCockpit (Right Workspace Tiles) -->
+<section class="w-[680px] m-2 ml-0 flex flex-col gap-2.5 z-40 overflow-hidden shrink-0" data-purpose="agent-execution-cockpit">
+<!-- Top Row: Main Agent Stream & Backlog Auditor Panel -->
+<div class="flex-1 flex gap-2.5 min-h-0">
+<!-- WINDOW 1: Primary Agent Execution & Thought Stream (Systems Engineer) -->
+<article class="flex-1 bg-white/85 backdrop-blur-xl border border-white/90 shadow-glass rounded-2xl flex flex-col overflow-hidden" data-purpose="primary-agent-stream">
+<!-- Window Header -->
+<div class="px-3.5 py-2.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500 ring-2 ring-amber-200"></span>
+<div>
+<h2 class="text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+                  Systems Engineer
+                  <span class="text-[10px] font-normal text-slate-500">· Claude 3.5 Sonnet</span>
+</h2>
+<p class="text-[10px] text-slate-400">User: visor agents eyes animation</p>
+</div>
+</div>
+<!-- Metrics badges -->
+<div class="flex items-center gap-1.5 text-[10px] font-mono">
+<span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/60">48,210 tkns</span>
+<span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">Working</span>
+</div>
+</div>
+<!-- Thought & Execution Terminal Log Body -->
+<div class="flex-1 p-3.5 overflow-y-auto space-y-3 font-sans text-xs">
+<!-- Agent Reasoning Box -->
+<div class="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 text-slate-600 leading-relaxed font-mono text-[11px]">
+<div class="flex items-center justify-between mb-1.5 text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
+<span>Reasoning Trace &amp; Environment Setup</span>
+<span class="text-emerald-600">✓ Sync Active</span>
+</div>
+<p>Installed the measuring build: <code class="text-indigo-600 font-semibold">/Applications/SAMS.app fresh</code>.</p>
+<p class="mt-1 text-slate-500">Relaunch SAMS and open the artifact once, then tell me. This build writes exactly where the page asked to dock the pane and where macOS actually put it. I read that log, and fix the real cause instead of guessing again.</p>
+</div>
+<!-- Interleaved Code Diff / Artifact Card -->
+<div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+<div class="flex items-center justify-between text-[11px]">
+<div class="flex items-center gap-1.5 font-medium text-slate-700">
+<svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Build Snapshot &amp; Diagnostics Artifact</span>
+</div>
+<span class="text-[10px] text-slate-400 font-mono">12:16 AM</span>
+</div>
+<!-- Mini attached snapshot mock (as seen in screenshot) -->
+<div class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg border border-slate-100">
+<div class="w-16 h-12 rounded bg-slate-800 p-1 flex flex-col justify-center items-center text-[8px] font-mono text-cyan-300 overflow-hidden shadow-xs">
+<span>[SAMS-LOG]</span>
+<span class="text-emerald-400 text-[6px]">pane_x: 280px</span>
+<span class="text-amber-400 text-[6px]">overflow: 0</span>
+</div>
+<div class="flex-1 text-[11px] text-slate-500">
+<div class="font-medium text-slate-700">hope its still not working</div>
+<div class="text-[10px] text-slate-400 font-mono">Target: <span class="text-indigo-600">artifact-pane-p2-2026</span></div>
+</div>
+<button class="px-2.5 py-1 text-[11px] font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-md border border-indigo-200 transition">
+                  Inspect
+                </button>
+</div>
+</div>
+<!-- Terminal Output Box -->
+<div class="p-2.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[10.5px] leading-relaxed shadow-inner">
+<div class="flex items-center justify-between text-slate-400 pb-1.5 mb-1.5 border-b border-slate-800 text-[9.5px]">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  Terminal Process: npm run build:desktop:mac
+                </span>
+<span class="text-slate-400">exit: 0</span>
+</div>
+<p class="text-slate-400">$ Building now. What the log proved: macOS put the view exactly where the page asked.</p>
+<p class="text-emerald-400 font-semibold">✔ width-fix: pane column now holds ~560px with 1 to 4 chats (was 250px).</p>
+<p class="text-cyan-300">✔ touched tests 31/31, full suite 2132/2132 passed.</p>
+</div>
+</div>
+<!-- Bottom Prompt / Delegation Input -->
+<div class="p-2.5 border-t border-slate-100 bg-white/70">
+<div class="flex items-center gap-2 bg-slate-50 rounded-xl px-3 py-1.5 border border-slate-200 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100 transition">
+<input class="flex-1 bg-transparent border-0 text-xs p-0 focus:ring-0 text-slate-700 placeholder:text-slate-400" placeholder="Ask · your first message adapts this conversation into SAMS..." type="text"/>
+<button class="p-1 text-slate-400 hover:text-slate-600">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-medium flex items-center gap-1 transition">
+<span>Send</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</article>
+<!-- WINDOW 2: SAMS System Prompt Audit & Backlog (Right side column) -->
+<article class="w-64 bg-white/85 backdrop-blur-xl border border-white/90 shadow-glass rounded-2xl flex flex-col overflow-hidden" data-purpose="system-prompt-audit">
+<div class="px-3 py-2.5 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
+<h3 class="text-xs font-semibold text-slate-800 flex items-center gap-1">
+<span>Audit SAMS System</span>
+</h3>
+<span class="text-[10px] font-mono text-emerald-600 font-medium">Synced</span>
+</div>
+<div class="p-3 flex-1 overflow-y-auto space-y-3 text-[11px] text-slate-600">
+<!-- Guidelines Checklist -->
+<div>
+<p class="font-medium text-slate-700 mb-1">Constraints &amp; Backlog:</p>
+<ul class="space-y-1.5 text-[10.5px] text-slate-500 leading-snug">
+<li class="flex items-start gap-1.5">
+<span class="text-emerald-500 font-bold mt-0.5">✓</span>
+<span>Changed references or plans require a fresh choice.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-emerald-500 font-bold mt-0.5">✓</span>
+<span>Unused options stay separate from finished slides.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-emerald-500 font-bold mt-0.5">✓</span>
+<span>Verified: 2,132 tests passed, app reopened successfully.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-amber-500 font-bold mt-0.5">⚠</span>
+<span>Actual generation still requires an image-capable agent.</span>
+</li>
+</ul>
+</div>
+<!-- File Changes summary -->
+<div class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 font-mono text-[10px]">
+<div class="flex items-center justify-between mb-1 text-slate-700 font-medium">
+<span>Edited Files (2)</span>
+<span class="text-emerald-600 font-semibold">+55.7k / -12.2k</span>
+</div>
+<p class="text-slate-400 truncate">src/stage/AgentRoom.tsx</p>
+<p class="text-slate-400 truncate">src/core/macos-dock.ts</p>
+</div>
+<!-- Agent Roles status tracker -->
+<div class="pt-2 border-t border-slate-100">
+<span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Agents in Room</span>
+<div class="mt-1.5 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="text-slate-700 font-medium">Systems Engineer</span>
+<span class="text-[10px] text-orange-500">Active</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-700 font-medium">Auditor / Planner</span>
+<span class="text-[10px] text-emerald-500">Standby</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-700 font-medium">Researcher</span>
+<span class="text-[10px] text-purple-500">Listening</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Bottom Row: Sub-agent Multi-Process Tiles (Astra + UI Auditor) -->
+<div class="h-44 flex gap-2.5 shrink-0">
+<!-- Tile 1: Astra (Upgrade realism & lighting) -->
+<div class="flex-1 bg-white/85 backdrop-blur-xl border border-white/90 shadow-glass rounded-2xl p-3 flex flex-col justify-between overflow-hidden" data-purpose="sub-agent-astra">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+<span class="text-xs font-semibold text-slate-800">Astra</span>
+<span class="text-[10px] text-slate-400 font-mono">GPT-4o Astra</span>
+</div>
+<span class="text-[10px] font-mono text-slate-400">Worked for 2m 44s</span>
+</div>
+<!-- Mini Terminal Output -->
+<div class="my-1.5 p-2 rounded-lg bg-slate-900/95 font-mono text-[10px] text-slate-300 leading-snug overflow-hidden flex-1">
+<p class="text-cyan-400 font-medium">&gt; Upgrade agent realism and lighting</p>
+<p class="text-slate-400">Configuring floor bounce shader (PBR)...</p>
+<p class="text-emerald-400">Ambient occlusion set to 0.42</p>
+</div>
+<!-- Quick Action Bar -->
+<div class="flex items-center justify-between pt-1 text-[11px]">
+<span class="text-slate-400 text-[10px]">Ask Agent — first message carries this</span>
+<button class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-medium">
+              View Screen
+            </button>
+</div>
+</div>
+<!-- Tile 2: UI Auditor / Question UI -->
+<div class="flex-1 bg-white/85 backdrop-blur-xl border border-white/90 shadow-glass rounded-2xl p-3 flex flex-col justify-between overflow-hidden" data-purpose="sub-agent-ui">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<span class="text-xs font-semibold text-slate-800">Improve Agent Question UI</span>
+</div>
+<span class="px-1.5 py-0.2 rounded text-[9.5px] font-mono bg-emerald-50 text-emerald-600 font-semibold">Done</span>
+</div>
+<div class="my-1.5 p-2 rounded-lg bg-slate-50 border border-slate-200/80 font-mono text-[10px] text-slate-600 overflow-hidden flex-1">
+<p class="font-medium text-slate-700">Verification Result:</p>
+<p class="text-slate-500 truncate">&gt; Verified 2,132 tests passed.</p>
+<p class="text-indigo-600 font-medium">App reopened with docked column fix.</p>
+</div>
+<div class="flex items-center justify-between pt-1 text-[11px]">
+<span class="text-slate-400 text-[10px]">Auto-merge into main branch</span>
+<button class="px-2 py-0.5 rounded bg-slate-900 text-white hover:bg-slate-800 text-[10px] font-medium">
+              Approve
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AgentExecutionCockpit -->
+</div>
+<!-- JavaScript for Interactive Controls & Live Metrics -->
+<script data-purpose="interactive-hud-controls">
+    document.addEventListener('DOMContentLoaded', () => {
+      // Periodic subtle latency fluctuation to simulate real multi-agent network
+      const latencyEl = document.querySelector('header span.text-emerald-600');
+      if (latencyEl) {
+        setInterval(() => {
+          const lat = Math.floor(28 + Math.random() * 9);
+          latencyEl.textContent = `${lat}ms`;
+        }, 3200);
+      }
+    });
+  </script>
+</body></html>

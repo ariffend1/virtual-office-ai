@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","on-tertiary-fixed":"#23005c","surface-container-highest":"#d3e4fe","on-primary-container":"#7c839b","on-secondary":"#ffffff","on-primary":"#ffffff","surface-container-low":"#eff4ff","primary":"#000000","tertiary-container":"#23005c","secondary":"#00687a","on-background":"#0b1c30","secondary-fixed-dim":"#4cd7f6","on-tertiary-fixed-variant":"#5516be","on-error":"#ffffff","secondary-container":"#57dffe","on-primary-fixed-variant":"#3f465c","tertiary":"#000000","surface-container":"#e5eeff","surface-bright":"#f8f9ff","on-secondary-fixed-variant":"#004e5c","surface-container-high":"#dce9ff","outline":"#76777d","error":"#ba1a1a","inverse-primary":"#bec6e0","on-surface-variant":"#45464d","outline-variant":"#c6c6cd","on-secondary-container":"#006172","background":"#f8f9ff","on-secondary-fixed":"#001f26","error-container":"#ffdad6","on-primary-fixed":"#131b2e","surface-tint":"#565e74","on-error-container":"#93000a","on-surface":"#0b1c30","inverse-on-surface":"#eaf1ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#bec6e0","tertiary-fixed":"#e9ddff","secondary-fixed":"#acedff","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","surface-dim":"#cbdbf5","primary-container":"#131b2e","tertiary-fixed-dim":"#d0bcff","on-tertiary-container":"#9466ff","inverse-surface":"#213145","on-tertiary":"#ffffff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-dense":"0.5rem","space-lg":"1.25rem","space-xs":"0.25rem","space-xl":"2rem","gutter":"1rem","margin-dense":"0.75rem","space-sm":"0.5rem","margin":"1.5rem"},fontFamily:{"code-lg":["JetBrains Mono"],"metric-val":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"code-sm":["JetBrains Mono"],"label-xs":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"]},fontSize:{"code-lg":["13px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"500"}],"metric-val":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"title-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"500"}],"code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"400"}],"label-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md"><div class="flex flex-col items-center gap-space-md w-full"><button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" title="Agent Core Grid"><span class="material-symbols-outlined text-[20px]">hub</span></button><div class="w-8 h-px bg-surface-container-high"></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Systems Engineer (Arch-01)"><span class="font-code-sm text-code-sm font-semibold">SE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Auditor Agent (SecOps)"><span class="font-code-sm text-code-sm font-semibold">AU</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Deep Researcher"><span class="font-code-sm text-code-sm font-semibold">RE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Astra Runtime Coordinator"><span class="font-code-sm text-code-sm font-semibold">AS</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button></div></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Toggle Canvas Grid"><span class="material-symbols-outlined text-[20px]">grid_4x4</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Layer Tree / Node Hierarchy"><span class="material-symbols-outlined text-[20px]">account_tree</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="System Settings"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-dense"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CortxOS Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAUWbkqAtEc3qnlInbWkvRauoOAKk8hURCLjm8jZ0afL9Ega_dnnYIQFosH2WoC_ZqsSAXuzo3J_JqQ-cKXGUwVPg_ESDzpJdTY1RukdXm-nGrLfsVFtX2P24Z76XC98E2X4KAUchAridgBbTGP7g68Rwqc4CtrIpFKvrEVVNs0tmtO4AkxGrPOsVq7zSco2iywo50MhyHZdusWDXYZ17Sqjfz0NmqNACD_nsmoe6VZk4FI99LJ0c"/><span class="font-code-sm text-code-sm text-on-surface-variant">|</span><span class="font-title-sm text-title-sm text-on-surface font-semibold">SAMS Studio</span><span class="font-label-xs text-label-xs bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">v2.4-PROD</span></div><nav class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded"><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="3d-workspace" href="#">3D Workspace</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="training-room" href="#">Training Room</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="knowledge-graph" href="#">Knowledge Graph</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-and-pipeline" href="#">Audit &amp; Pipeline</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-1 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-1.5 mr-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-metric-val text-metric-val text-on-surface">4 ACTIVE</span></div><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">FPS:</span><span class="font-metric-val text-metric-val text-on-surface">60</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">LAT:</span><span class="font-metric-val text-metric-val text-on-surface">28ms</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">TOK:</span><span class="font-metric-val text-metric-val text-on-surface">48.2k</span><span class="font-label-xs text-label-xs text-on-surface-variant">($0.076)</span></div><div class="flex items-center bg-surface-container-low p-0.5 rounded-md"><button class="px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-primary text-on-primary">Auto</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Spot</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Manual</button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full px-space-lg py-space-md flex flex-col gap-space-md">
+<!-- Top Telemetry & Status Ribbon -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-code-lg text-code-lg text-primary font-semibold">PR #204</span>
+<span class="font-title-sm text-title-sm text-on-surface truncate">Fix MacOS Dock Pane Clamping &amp; Expand Multi-Chat Column to 560px</span>
+<span class="font-label-xs text-label-xs bg-secondary-container/30 text-on-secondary-container px-space-xs py-0.5 rounded font-mono font-medium">READY TO MERGE</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span>Author:</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface">Systems Engineer (Claude 3.5 Sonnet)</span>
+<span>•</span>
+<span>Reviewed by:</span>
+<span class="font-code-sm text-code-sm font-medium text-secondary">Auditor / Planner (Standby)</span>
+<span>•</span>
+<span class="font-label-xs text-label-xs text-outline">Branch: fix/dock-clamping → staging</span>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Pill Group -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-ping"></span>
+<span class="font-metric-val text-metric-val text-on-surface">2,132 / 2,132 CHECKS</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">timer</span>
+<span class="font-code-sm text-code-sm text-on-surface">Execution: 1m 42s</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-secondary-container">toll</span>
+<span class="font-code-sm text-code-sm text-on-surface">Cost: $0.076</span>
+<span class="font-label-xs text-label-xs text-outline">(&lt; $0.50)</span>
+</div>
+</div>
+</div>
+<!-- Main Dual Pane Viewport -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md w-full items-start">
+<!-- Left 60% Column: Test Suites & Code Diff Inspector -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Automated Status Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div>
+<p class="font-title-sm text-title-sm text-on-surface font-semibold">All 2,132 Automated Checks Passed</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous verification gates satisfied across all active virtual staging workers.</p>
+</div>
+</div>
+<button class="bg-surface-container-lowest hover:bg-surface-container px-space-md py-1 rounded text-on-surface font-code-sm text-code-sm shadow-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Re-evaluate</span>
+</button>
+</div>
+<!-- 4 Test Suite Breakdown Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Unit &amp; Integration</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">task_alt</span>
+</div>
+<div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-display-lg text-headline-md font-mono text-on-surface">1,420 <span class="text-on-surface-variant font-code-sm text-code-sm">/ 1,420</span></span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">100% PASS</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-1.5 rounded-full w-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs">
+<span>Coverage: 98.4%</span>
+<span>42 suites • 18ms p95</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Visual Regression</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">task_alt</span>
+</div>
+<div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-display-lg text-headline-md font-mono text-on-surface">312 <span class="text-on-surface-variant font-code-sm text-code-sm">/ 312</span></span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">0 MISMATCHES</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-1.5 rounded-full w-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs">
+<span>Playwright Snapshot Engine</span>
+<span>Retina + Ultrawide</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Concurrency &amp; Mutex</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">task_alt</span>
+</div>
+<div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-display-lg text-headline-md font-mono text-on-surface">400 <span class="text-on-surface-variant font-code-sm text-code-sm">/ 400</span></span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">0 DEADLOCKS</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-1.5 rounded-full w-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs">
+<span>Race conditions: 0</span>
+<span>Event Loop Lat: 1.4ms</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Token &amp; Cost Gate</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">task_alt</span>
+</div>
+<div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-display-lg text-headline-md font-mono text-on-surface">48,210 <span class="text-on-surface-variant font-code-sm text-code-sm">tokens</span></span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">$0.076 / $0.50</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-1.5 rounded-full" style="width: 15.2%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs">
+<span>Budget Utilized: 15.2%</span>
+<span>Max allowed: 250k</span>
+</div>
+</div>
+</div>
+<!-- Interactive Code Diff Inspector -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
+<!-- Tab Bar & Diff Controls -->
+<div class="bg-surface-container-low px-space-md py-space-xs flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto">
+<button class="px-space-md py-1.5 rounded bg-surface-container-lowest text-on-surface font-code-sm text-code-sm font-semibold shadow-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">description</span>
+<span>src/stage/AgentRoom.tsx</span>
+<span class="font-label-xs text-label-xs text-secondary font-mono">+42.1k / -8.4k</span>
+</button>
+<button class="px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-code-sm text-code-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline">description</span>
+<span>src/core/macos-dock.ts</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">+13.6k / -3.8k</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Unified Diff</span>
+<button class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" title="Expand Full Screen">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Diff Viewport -->
+<div class="bg-primary-container text-surface p-space-md overflow-x-auto font-code-sm text-code-sm leading-relaxed">
+<!-- Code Block Context Header -->
+<div class="text-on-primary-container font-mono text-label-xs py-1 px-2 rounded bg-surface-container-highest/10 mb-2">
+              @@ -142,8 +142,12 @@ export const AgentWorkspaceColumn: React.FC&lt;ColumnProps&gt; = ({ containerWidth }) =&gt; {
+            </div>
+<!-- Unchanged lines -->
+<div class="flex items-center gap-space-md text-outline font-mono hover:bg-surface-container-highest/5 px-1 rounded">
+<span class="w-8 text-right select-none opacity-40">142</span>
+<span class="w-8 text-right select-none opacity-40">142</span>
+<span class="w-4 select-none opacity-40"> </span>
+<span class="text-surface">  const { currentViewport, multiChatExpanded } = useAgentLayoutStore();</span>
+</div>
+<div class="flex items-center gap-space-md text-outline font-mono hover:bg-surface-container-highest/5 px-1 rounded">
+<span class="w-8 text-right select-none opacity-40">143</span>
+<span class="w-8 text-right select-none opacity-40">143</span>
+<span class="w-4 select-none opacity-40"> </span>
+<span class="text-surface">  const minThreshold = computeDockMarginInset(currentViewport.dpi);</span>
+</div>
+<!-- Deleted lines (red) -->
+<div class="flex items-center gap-space-md bg-error-container/20 text-error-container font-mono px-1 rounded my-0.5">
+<span class="w-8 text-right select-none text-error opacity-70">144</span>
+<span class="w-8 text-right select-none opacity-20"> </span>
+<span class="w-4 select-none font-bold text-error">-</span>
+<span class="line-through decoration-error/50">  const PANE_COLUMN_WIDTH = 250; // causes text truncation</span>
+</div>
+<!-- Added lines (green / secondary) -->
+<div class="flex items-center gap-space-md bg-secondary-container/20 text-secondary-container font-mono px-1 rounded my-0.5">
+<span class="w-8 text-right select-none opacity-20"> </span>
+<span class="w-8 text-right select-none text-secondary-fixed-dim opacity-70">144</span>
+<span class="w-4 select-none font-bold text-secondary-fixed-dim">+</span>
+<span class="font-medium text-secondary-fixed">  // Clamp dynamically between 480px and 560px on wide layouts</span>
+</div>
+<div class="flex items-center gap-space-md bg-secondary-container/20 text-secondary-container font-mono px-1 rounded my-0.5">
+<span class="w-8 text-right select-none opacity-20"> </span>
+<span class="w-8 text-right select-none text-secondary-fixed-dim opacity-70">145</span>
+<span class="w-4 select-none font-bold text-secondary-fixed-dim">+</span>
+<span class="font-semibold text-on-secondary">  const PANE_COLUMN_WIDTH = Math.clamp(containerWidth * 0.42, 480, 560);</span>
+</div>
+<div class="flex items-center gap-space-md bg-secondary-container/20 text-secondary-container font-mono px-1 rounded my-0.5">
+<span class="w-8 text-right select-none opacity-20"> </span>
+<span class="w-8 text-right select-none text-secondary-fixed-dim opacity-70">146</span>
+<span class="w-4 select-none font-bold text-secondary-fixed-dim">+</span>
+<span class="font-medium text-secondary-fixed">  const dockClampingStyle = { flex: `0 0 ${PANE_COLUMN_WIDTH}px`, transition: 'flex-basis 140ms ease-out' };</span>
+</div>
+<!-- Unchanged continuation -->
+<div class="flex items-center gap-space-md text-outline font-mono hover:bg-surface-container-highest/5 px-1 rounded">
+<span class="w-8 text-right select-none opacity-40">145</span>
+<span class="w-8 text-right select-none opacity-40">147</span>
+<span class="w-4 select-none opacity-40"> </span>
+<span class="text-surface">  return (</span>
+</div>
+<div class="flex items-center gap-space-md text-outline font-mono hover:bg-surface-container-highest/5 px-1 rounded">
+<span class="w-8 text-right select-none opacity-40">146</span>
+<span class="w-8 text-right select-none opacity-40">148</span>
+<span class="w-4 select-none opacity-40"> </span>
+<span class="text-surface">    &lt;section className="macos-dock-column" style={dockClampingStyle}&gt;</span>
+</div>
+<!-- Inline Agent Review Annotation -->
+<div class="mt-space-md bg-surface-container-highest/20 rounded-lg p-space-md flex flex-col gap-space-xs text-on-surface">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-code-sm text-code-sm font-bold">AU</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-primary">Auditor / Planner (SecOps)</span>
+<span class="font-label-xs text-label-xs text-on-primary-container font-mono">14m ago • Verified Inline</span>
+</div>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-secondary-container/30 text-secondary-fixed-dim font-mono">LGTM • NON-BLOCKING</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary ml-space-md pl-2 border-l-2 border-secondary-fixed-dim/40">
+                Verified on Retina (2880×1800) and UltraWide (3440×1440) virtual displays. The column flexes cleanly without breaking the right dock or creating horizontal scrollbars. Token cost is well beneath threshold.
+              </p>
+</div>
+</div>
+<!-- Live Diff Inspection Footer -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>All 2 modified files reviewed by 4 concurrent consensus agents</span>
+</span>
+<button class="text-primary hover:underline font-medium">Show Commit History (3 commits)</button>
+</div>
+</div>
+</div>
+<!-- Right 40% Column: Consensus Matrix, Execution Log & Merging Gate -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Multi-Agent Consensus Matrix -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-on-surface">diversity_3</span>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Consensus Matrix</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-space-xs py-0.5 rounded text-on-surface font-mono font-medium">4/4 APPROVED</span>
+</div>
+<!-- Consensus List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Agent 1 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-code-sm font-bold text-on-surface">SE</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Systems Engineer</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Signed off • Build artifact verified</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+<!-- Agent 2 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-code-sm font-bold text-on-surface">AU</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Auditor / Planner</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Signed off • Constraints satisfied</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+<!-- Agent 3 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-code-sm font-bold text-on-surface">RE</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Deep Researcher</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Signed off • Docs &amp; backlinks updated</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+<!-- Agent 4 -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-code-sm text-code-sm font-bold text-on-surface">AS</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Astra Runtime</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Signed off • WebGL bounce 60 FPS</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+</div>
+<!-- Staging Simulation Preview -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center gap-space-md">
+<div class="w-16 h-12 rounded bg-surface-container-highest flex-shrink-0 flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 opacity-20 bg-gradient-to-tr from-secondary to-transparent"></div>
+<span class="material-symbols-outlined text-on-surface text-[20px]">devices</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Virtual Stage Emulator #04</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">macOS Sonoma • 120Hz ProMotion OK</span>
+</div>
+</div>
+</div>
+<!-- Terminal Execution Log Drawer -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="bg-surface-container-low px-space-md py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">terminal</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Runtime Log: $ yarn test:multi-agent</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">COMPLETE (0 EXIT)</span>
+</div>
+</div>
+<div class="bg-primary-container p-space-md font-code-sm text-code-sm leading-snug text-surface-dim h-48 overflow-y-auto space-y-1">
+<p class="text-on-primary-container">[08:42:01] <span class="text-secondary-fixed">runner@cortx-cluster-west2:</span> ~ $ yarn test:multi-agent --pr=204</p>
+<p class="text-inverse-primary">[08:42:03] ✓ Spawning 4 headless orchestration instances...</p>
+<p class="text-inverse-primary">[08:42:06] ✓ Agent [SE]: Generated bundle target: es2024-node-sim (42.1k)</p>
+<p class="text-inverse-primary">[08:42:11] ✓ Agent [AU]: Linting AST for dock boundary regressions... 0 errors, 0 warnings.</p>
+<p class="text-inverse-primary">[08:42:24] ✓ Agent [RE]: Cross-verifying node knowledge graph backlinks.</p>
+<p class="text-inverse-primary">[08:42:38] ✓ Agent [AS]: Floor bounce WebGL buffer shader validation passed at 60.12 FPS.</p>
+<p class="text-secondary-fixed-dim">[08:42:41] PASS: 1,420 unit specs • 312 snapshots • 400 concurrency cycles.</p>
+<p class="text-on-primary font-semibold">[08:42:43] ✓ Artifact digest sha256:4f8e819b... generated cleanly.</p>
+<p class="text-on-primary-container">[08:42:43] Pipeline state changed: PENDING_USER_AUTHORIZATION.</p>
+</div>
+</div>
+<!-- Action Control Footer Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Auto-merge toggle -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">merge_type</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Auto-merge into main branch</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Deploy instantly upon cryptographic confirmation</span>
+</div>
+</div>
+<!-- Native styled Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Primary & Secondary CTA Buttons -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full h-10 rounded-lg bg-primary hover:bg-surface-container-highest hover:text-on-surface text-on-primary font-body-sm text-body-sm font-semibold flex items-center justify-center gap-space-sm shadow-md transition-all">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">rocket_launch</span>
+<span>Approve &amp; Trigger Production Deploy (v2.4.0)</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-code-sm text-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Download .tar.gz</span>
+</button>
+<button class="h-8 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-code-sm text-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">science</span>
+<span>Re-test in Sandbox</span>
+</button>
+</div>
+</div>
+<!-- Security note -->
+<div class="flex items-center justify-center gap-1 text-on-surface-variant font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span>Ed25519 Signed by CortxOS Consensus Engine • Zero human intervention required</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

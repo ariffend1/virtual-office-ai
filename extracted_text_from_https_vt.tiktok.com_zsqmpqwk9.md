@@ -1,0 +1,1 @@
+[Moved Permanently](https://www.tiktok.com/@axial.studio/video/7684154193950657823?_r=1&_t=ZS-99fo8qcxqHV).

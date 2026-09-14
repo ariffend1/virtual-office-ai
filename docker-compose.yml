@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  cortxos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cortxos-studio
+    ports:
+      - "8899:8899"
+    environment:
+      - CORTXOS_PORT=8899
+      - CORTXOS_HOST=0.0.0.0
+      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=qwen2.5-coder:7b
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

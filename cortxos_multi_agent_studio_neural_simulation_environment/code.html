@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","on-tertiary-fixed":"#23005c","surface-container-highest":"#d3e4fe","on-primary-container":"#7c839b","on-secondary":"#ffffff","on-primary":"#ffffff","surface-container-low":"#eff4ff","primary":"#000000","tertiary-container":"#23005c","secondary":"#00687a","on-background":"#0b1c30","secondary-fixed-dim":"#4cd7f6","on-tertiary-fixed-variant":"#5516be","on-error":"#ffffff","secondary-container":"#57dffe","on-primary-fixed-variant":"#3f465c","tertiary":"#000000","surface-container":"#e5eeff","surface-bright":"#f8f9ff","on-secondary-fixed-variant":"#004e5c","surface-container-high":"#dce9ff","outline":"#76777d","error":"#ba1a1a","inverse-primary":"#bec6e0","on-surface-variant":"#45464d","outline-variant":"#c6c6cd","on-secondary-container":"#006172","background":"#f8f9ff","on-secondary-fixed":"#001f26","error-container":"#ffdad6","on-primary-fixed":"#131b2e","surface-tint":"#565e74","on-error-container":"#93000a","on-surface":"#0b1c30","inverse-on-surface":"#eaf1ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#bec6e0","tertiary-fixed":"#e9ddff","secondary-fixed":"#acedff","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","surface-dim":"#cbdbf5","primary-container":"#131b2e","tertiary-fixed-dim":"#d0bcff","on-tertiary-container":"#9466ff","inverse-surface":"#213145","on-tertiary":"#ffffff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-dense":"0.5rem","space-lg":"1.25rem","space-xs":"0.25rem","space-xl":"2rem","gutter":"1rem","margin-dense":"0.75rem","space-sm":"0.5rem","margin":"1.5rem"},fontFamily:{"code-lg":["JetBrains Mono"],"metric-val":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"code-sm":["JetBrains Mono"],"label-xs":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"]},fontSize:{"code-lg":["13px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"500"}],"metric-val":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"title-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"500"}],"code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"400"}],"label-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md"><div class="flex flex-col items-center gap-space-md w-full"><button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" title="Agent Core Grid"><span class="material-symbols-outlined text-[20px]">hub</span></button><div class="w-8 h-px bg-surface-container-high"></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Systems Engineer (Arch-01)"><span class="font-code-sm text-code-sm font-semibold">SE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Auditor Agent (SecOps)"><span class="font-code-sm text-code-sm font-semibold">AU</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Deep Researcher"><span class="font-code-sm text-code-sm font-semibold">RE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Astra Runtime Coordinator"><span class="font-code-sm text-code-sm font-semibold">AS</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button></div></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Toggle Canvas Grid"><span class="material-symbols-outlined text-[20px]">grid_4x4</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Layer Tree / Node Hierarchy"><span class="material-symbols-outlined text-[20px]">account_tree</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="System Settings"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-dense"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CortxOS Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNTEpTeByK9B42vBO-Hh8Tz-ilboSPRpxem0LD1epIJqdqqsh0eOenXQyGfLg3nWv7I6qMhYG6JObHRAx9TY0lJJvgJ8ZJL_wvC_D2K-A1rz_5CeCJR3B5EySTkW7kdUxoJqBdNZ8489S63iVOW9s5fXiE-_REgdTSP6x8Q9ANlDAj83-q71jgrMm3Za8RE3f0xr6iREHkBxam3ivefN48OIgp34krxQJaXVS7Iu2Aul5mn09Sla8"/><span class="font-code-sm text-code-sm text-on-surface-variant">|</span><span class="font-title-sm text-title-sm text-on-surface font-semibold">SAMS Studio</span><span class="font-label-xs text-label-xs bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">v2.4-PROD</span></div><nav class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded"><a aria-current="page" class="px-space-md py-1 transition-colors bg-primary-container text-on-primary font-medium rounded" data-path="3d-workspace" href="#">3D Workspace</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="training-room" href="#">Training Room</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="knowledge-graph" href="#">Knowledge Graph</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-and-pipeline" href="#">Audit &amp; Pipeline</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-1 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-1.5 mr-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-metric-val text-metric-val text-on-surface">4 ACTIVE</span></div><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">FPS:</span><span class="font-metric-val text-metric-val text-on-surface">60</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">LAT:</span><span class="font-metric-val text-metric-val text-on-surface">28ms</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">TOK:</span><span class="font-metric-val text-metric-val text-on-surface">48.2k</span><span class="font-label-xs text-label-xs text-on-surface-variant">($0.076)</span></div><div class="flex items-center bg-surface-container-low p-0.5 rounded-md"><button class="px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-primary text-on-primary">Auto</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Spot</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Manual</button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full flex flex-col 2xl:flex-row h-[calc(100vh-3.5rem)] overflow-hidden">
+<!-- LEFT COLUMN: 3D Isometric Agent Room (50% desktop split) -->
+<div class="relative w-full 2xl:w-1/2 h-[563px] 2xl:h-full overflow-hidden flex flex-col bg-surface select-none">
+<!-- Ambient Workspace Backdrop / Spatial Light -->
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-high/40 via-surface to-surface-container-lowest/70 pointer-events-none"></div>
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-10 right-10 w-96 h-96 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Top Overlay Room Status Ribbon -->
+<div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-space-sm bg-surface-container-lowest/85 backdrop-blur-md px-space-md py-1.5 rounded-full shadow-sm pointer-events-auto">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">ROOM-ALPHA // MULTI-AGENT RUNTIME</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">CONCURRENT 3x</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest/85 backdrop-blur-md px-space-sm py-1 rounded-full shadow-sm pointer-events-auto">
+<span class="font-label-xs text-label-xs text-on-surface-variant px-1.5">ISOMETRIC GRID 1.0m</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></span>
+<span class="font-metric-val text-metric-val text-on-surface pr-1">PBR SHADING</span>
+</div>
+</div>
+<!-- 3D Canvas Stage Container (Isometric SVG & Layered Mechanical Entities) -->
+<div class="relative flex-1 w-full h-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing">
+<!-- Isometric Coordinate Plane Visualization -->
+<svg class="absolute inset-0 w-full h-full text-surface-container-highest/70" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="34.64" id="iso-light-grid" patterntransform="scale(1.2)" patternunits="userSpaceOnUse" width="60">
+<path d="M 60 0 L 0 17.32 L 60 34.64 L 120 17.32 Z" fill="none" stroke="currentColor" stroke-dasharray="2,2" stroke-width="0.8"></path>
+<path d="M 0 17.32 L 60 17.32" fill="none" opacity="0.4" stroke="currentColor" stroke-width="0.3"></path>
+</pattern>
+<!-- Platform Gradients -->
+<lineargradient id="plinth-top" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#eff4ff" stop-opacity="0.95"></stop>
+</lineargradient>
+<lineargradient id="plinth-side" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#dce9ff" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#cbdbf5" stop-opacity="0.95"></stop>
+</lineargradient>
+<!-- Agent Splines Glow Filters -->
+<filter height="140%" id="glow-orange" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+<filter height="140%" id="glow-purple" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+<filter height="140%" id="glow-cyan" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Infinite Floor Grid Base -->
+<rect class="opacity-60" fill="url(#iso-light-grid)" height="100%" width="100%"></rect>
+<!-- Center Stage Main Isometric Deck -->
+<g transform="translate(500, 420)">
+<!-- Outer Deck Base Shadow -->
+<polygon fill="#0b1c30" opacity="0.04" points="-380,-10 0,-210 380,-10 0,190" transform="translate(0, 32)"></polygon>
+<!-- Lower Floor Plinth Slab -->
+<polygon fill="url(#plinth-side)" points="-360,0 0,-190 360,0 360,28 0,218 -360,28"></polygon>
+<polygon fill="url(#plinth-top)" points="-360,0 0,-190 360,0 0,190"></polygon>
+<!-- Floor Micro Grid Inset Rings -->
+<polygon fill="none" opacity="0.35" points="-300,0 0,-155 300,0 0,155" stroke="#57dffe" stroke-dasharray="6,4" stroke-width="1.2"></polygon>
+<polygon fill="none" opacity="0.25" points="-220,0 0,-115 220,0 0,115" stroke="#565e74" stroke-width="0.8"></polygon>
+<!-- Center Radial Core Well -->
+<polygon fill="#d3e4fe" opacity="0.7" points="-80,0 0,-42 80,0 0,42"></polygon>
+<circle cx="0" cy="0" fill="#00687a" opacity="0.15" r="14"></circle>
+<circle cx="0" cy="0" fill="#4cd7f6" filter="url(#glow-cyan)" r="6"></circle>
+<!-- ELEVATED VERIFICATION PODIUM (Auditor / Planner Platform) Top Center -->
+<g transform="translate(0, -90)">
+<polygon fill="#cbdbf5" points="-90,0 0,-46 90,0 90,22 0,68 -90,22"></polygon>
+<polygon fill="#ffffff" points="-90,0 0,-46 90,0 0,46"></polygon>
+<polygon fill="none" opacity="0.8" points="-82,0 0,-42 82,0 0,42" stroke="#10b981" stroke-width="1.5"></polygon>
+<circle cx="0" cy="0" fill="#10b981" opacity="0.12" r="18"></circle>
+</g>
+<!-- WORKSTATION DESK (Systems Engineer Terminal Stage) Left Flank -->
+<g transform="translate(-180, 20)">
+<!-- Desk Plinth -->
+<polygon fill="#cbdbf5" points="-75,-15 0,-52 75,-15 75,-3 0,35 -75,-3"></polygon>
+<polygon fill="#eff4ff" points="-75,-15 0,-52 75,-15 0,22"></polygon>
+<!-- Glowing Terminal Monitor Rig -->
+<path d="M 10,-35 L 35,-48 L 35,-15 L 10,-2 Z" fill="#131b2e"></path>
+<path d="M 12,-33 L 33,-44 L 33,-18 L 12,-7 Z" fill="#f97316" filter="url(#glow-orange)" opacity="0.85"></path>
+<!-- Terminal Screen Stand -->
+<line stroke="#76777d" stroke-width="3" x1="22" x2="22" y1="-8" y2="4"></line>
+<!-- Running test hologram beam -->
+<polygon fill="#f97316" opacity="0.12" points="12,-33 33,-44 60,-90 10,-75"></polygon>
+</g>
+<!-- DATA ARCHIVE VAULT & BEACON (Researcher Station) Right Flank -->
+<g transform="translate(190, 30)">
+<!-- Base Sub-deck -->
+<polygon fill="#cbdbf5" points="-65,-10 0,-42 65,-10 65,6 0,38 -65,6"></polygon>
+<polygon fill="#ffffff" points="-65,-10 0,-42 65,-10 0,22"></polygon>
+<!-- Floating Crystal Data Node -->
+<polygon fill="#9466ff" filter="url(#glow-purple)" opacity="0.9" points="0,-48 24,-34 0,-20 -24,-34"></polygon>
+<polygon fill="#5516be" opacity="0.85" points="-24,-34 0,-20 0,-5 -24,-19"></polygon>
+<polygon fill="#8b5cf6" opacity="0.75" points="0,-20 24,-34 24,-19 0,-5"></polygon>
+</g>
+<!-- GLOWING SPLINE PATHS CONNECTING AGENTS -->
+<!-- Orange Spline (Engineer to Center Core) -->
+<path d="M -130,20 Q -60,45 0,0" fill="none" filter="url(#glow-orange)" opacity="0.9" stroke="#f97316" stroke-dasharray="6,4" stroke-width="2.5">
+<animate attributename="stroke-dashoffset" dur="2s" from="40" repeatcount="indefinite" to="0"></animate>
+</path>
+<!-- Emerald Spline (Auditor to Engineer Terminal) -->
+<path d="M 0,-70 Q -100,-40 -160,5" fill="none" opacity="0.85" stroke="#10b981" stroke-dasharray="4,4" stroke-width="2">
+<animate attributename="stroke-dashoffset" dur="2.5s" from="32" repeatcount="indefinite" to="0"></animate>
+</path>
+<!-- Royal Purple Spline (Researcher to Center Core) -->
+<path d="M 160,25 Q 90,45 0,0" fill="none" filter="url(#glow-purple)" opacity="0.85" stroke="#8b5cf6" stroke-dasharray="5,4" stroke-width="2.2">
+<animate attributename="stroke-dashoffset" dur="2.2s" from="0" repeatcount="indefinite" to="36"></animate>
+</path>
+<!-- High-speed data cable to Auditor -->
+<path d="M 0,-70 Q 80,-40 170,10" fill="none" opacity="0.75" stroke="#4cd7f6" stroke-dasharray="3,3" stroke-width="1.5"></path>
+</g>
+</svg>
+<!-- AGENT 1: Systems Engineer (Cyber Orange Robot #f97316) -->
+<div class="absolute left-[24%] bottom-[32%] flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-2 z-20">
+<!-- Floating Dynamic Agent Badge -->
+<div class="mb-2 flex items-center gap-1.5 bg-surface-container-lowest/95 backdrop-blur-md px-2.5 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-[#f97316] animate-pulse"></span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Systems Engineer</span>
+<span class="font-label-xs text-label-xs bg-[#f97316]/15 text-[#c2410c] px-1 rounded font-mono font-bold">ACTIVE</span>
+</div>
+<!-- 3D PBR Metallic Finish Robot Figure (SVG Articulation) -->
+<div class="relative w-28 h-36 flex items-center justify-center filter drop-shadow-[0_12px_14px_rgba(249,115,22,0.22)]">
+<svg class="w-full h-full" viewbox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="40%" cy="30%" id="eng-metal" r="70%">
+<stop offset="0%" stop-color="#ffffff"></stop>
+<stop offset="35%" stop-color="#f97316"></stop>
+<stop offset="85%" stop-color="#9a3412"></stop>
+<stop offset="100%" stop-color="#431407"></stop>
+</radialgradient>
+<lineargradient id="eng-visor" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#fed7aa"></stop>
+<stop offset="50%" stop-color="#ffffff"></stop>
+<stop offset="100%" stop-color="#f97316"></stop>
+</lineargradient>
+</defs>
+<!-- Metallic Shadow Base -->
+<ellipse cx="60" cy="140" fill="#0b1c30" opacity="0.25" rx="30" ry="8"></ellipse>
+<!-- Multi-joint Articulated Legs -->
+<path d="M 45 105 L 40 135 L 34 138" fill="none" stroke="#334155" stroke-linecap="round" stroke-width="6"></path>
+<path d="M 75 105 L 80 135 L 86 138" fill="none" stroke="#334155" stroke-linecap="round" stroke-width="6"></path>
+<!-- Torso PBR Chassis -->
+<rect fill="url(#eng-metal)" height="46" rx="10" stroke="#ffffff" stroke-width="0.8" width="48" x="36" y="60"></rect>
+<!-- Chest Core Matrix & Heat Vents -->
+<rect fill="#1e293b" height="12" rx="3" width="28" x="46" y="70"></rect>
+<circle cx="53" cy="76" fill="#38bdf8" r="2.5"></circle>
+<circle cx="60" cy="76" fill="#38bdf8" r="2.5"></circle>
+<circle cx="67" cy="76" fill="#f97316" r="2.5"></circle>
+<!-- Arms in Action Workspace Pose -->
+<path d="M 36 68 L 18 85 L 28 102" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="5"></path>
+<path d="M 84 68 L 102 85 L 94 100" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="5"></path>
+<!-- Articulated Metallic Head Unit -->
+<rect fill="url(#eng-metal)" height="32" rx="8" stroke="#ffffff" stroke-width="0.8" width="40" x="40" y="24"></rect>
+<!-- Antenna array -->
+<line stroke="#ea580c" stroke-width="2.5" x1="60" x2="60" y1="24" y2="12"></line>
+<circle cx="60" cy="10" fill="#ffffff" r="3"></circle>
+<!-- Glowing Animated Visor Eye -->
+<rect fill="#0f172a" height="10" rx="4" width="28" x="46" y="32"></rect>
+<rect fill="url(#eng-visor)" height="6" rx="2" width="24" x="48" y="34">
+<animate attributename="opacity" dur="1.8s" repeatcount="indefinite" values="0.8;1;0.8"></animate>
+</rect>
+</svg>
+</div>
+<!-- Active Diagnostic Sparkle -->
+<div class="mt-1 flex items-center gap-1 font-label-xs text-label-xs text-[#9a3412] bg-surface-container-lowest/80 px-2 py-0.5 rounded shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-[#f97316]">terminal</span>
+<span>Running Unit Suites</span>
+</div>
+</div>
+<!-- AGENT 2: Auditor / Planner (Emerald Green Robot #10b981) -->
+<div class="absolute left-[45%] top-[20%] flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-2 z-20">
+<!-- Standby Badge -->
+<div class="mb-2 flex items-center gap-1.5 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Auditor / Planner</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm">·</span>
+<span class="font-label-xs text-label-xs text-[#047857] font-mono font-medium">Standby</span>
+</div>
+<!-- Auditor Robot PBR Construction -->
+<div class="relative w-28 h-36 flex items-center justify-center filter drop-shadow-[0_12px_14px_rgba(16,185,129,0.22)]">
+<svg class="w-full h-full" viewbox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="40%" cy="30%" id="aud-metal" r="70%">
+<stop offset="0%" stop-color="#ffffff"></stop>
+<stop offset="35%" stop-color="#10b981"></stop>
+<stop offset="85%" stop-color="#047857"></stop>
+<stop offset="100%" stop-color="#022c22"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="60" cy="140" fill="#0b1c30" opacity="0.25" rx="28" ry="8"></ellipse>
+<!-- Hover Repulsor Thruster Glow -->
+<ellipse cx="60" cy="120" fill="#34d399" opacity="0.8" rx="16" ry="5"></ellipse>
+<path d="M 52 108 L 46 128" stroke="#334155" stroke-linecap="round" stroke-width="4"></path>
+<path d="M 68 108 L 74 128" stroke="#334155" stroke-linecap="round" stroke-width="4"></path>
+<!-- Sleek Aerodynamic Torso -->
+<path d="M 38 60 Q 60 52 82 60 L 76 104 Q 60 110 44 104 Z" fill="url(#aud-metal)" stroke="#ffffff" stroke-width="0.8"></path>
+<!-- Security Badge / Golden Crest -->
+<circle cx="60" cy="78" fill="#ecfdf5" r="7" stroke="#059669" stroke-width="1.5"></circle>
+<path d="M 57 78 L 59 81 L 64 75" fill="none" stroke="#059669" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- Arms Clasped in Inspection -->
+<path d="M 38 68 L 26 84 L 46 95" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="4.5"></path>
+<path d="M 82 68 L 94 84 L 74 95" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="4.5"></path>
+<!-- Crowned Auditor Dome Helmet -->
+<ellipse cx="60" cy="38" fill="url(#aud-metal)" rx="22" ry="18" stroke="#ffffff" stroke-width="0.8"></ellipse>
+<!-- Panoramic Emerald Visor Strip -->
+<rect fill="#022c22" height="8" rx="4" width="36" x="42" y="32"></rect>
+<rect fill="#34d399" height="5" rx="2.5" width="32" x="44" y="33.5">
+<animate attributename="width" dur="3s" repeatcount="indefinite" values="10;32;10"></animate>
+</rect>
+</svg>
+</div>
+<div class="mt-1 flex items-center gap-1 font-label-xs text-label-xs text-[#065f46] bg-surface-container-lowest/80 px-2 py-0.5 rounded shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-[#10b981]">verified_user</span>
+<span>Policy Guard V4</span>
+</div>
+</div>
+<!-- AGENT 3: Deep Researcher (Royal Purple Robot #8b5cf6) -->
+<div class="absolute right-[22%] bottom-[28%] flex flex-col items-center group cursor-pointer transition-transform duration-300 hover:-translate-y-2 z-20">
+<!-- Floating Status Badge -->
+<div class="mb-2 flex items-center gap-1.5 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-[#8b5cf6] animate-pulse"></span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Researcher</span>
+<span class="font-label-xs text-label-xs bg-[#8b5cf6]/15 text-[#5b21b6] px-1 rounded font-mono font-bold">SYNAPSE</span>
+</div>
+<!-- Researcher Robot Figure -->
+<div class="relative w-28 h-36 flex items-center justify-center filter drop-shadow-[0_12px_14px_rgba(139,92,246,0.22)]">
+<svg class="w-full h-full" viewbox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="40%" cy="30%" id="res-metal" r="70%">
+<stop offset="0%" stop-color="#ffffff"></stop>
+<stop offset="35%" stop-color="#8b5cf6"></stop>
+<stop offset="85%" stop-color="#5516be"></stop>
+<stop offset="100%" stop-color="#1e0a45"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="60" cy="140" fill="#0b1c30" opacity="0.25" rx="28" ry="7"></ellipse>
+<!-- Quad-legged stance for steady scanning -->
+<path d="M 46 106 L 38 136" stroke="#334155" stroke-linecap="round" stroke-width="5"></path>
+<path d="M 74 106 L 82 136" stroke="#334155" stroke-linecap="round" stroke-width="5"></path>
+<!-- Torso Housing Core -->
+<rect fill="url(#res-metal)" height="48" rx="8" stroke="#ffffff" stroke-width="0.8" width="44" x="38" y="58"></rect>
+<!-- Data Stream Reactor Panel -->
+<circle cx="60" cy="80" fill="#1e1b4b" r="10"></circle>
+<circle cx="60" cy="80" fill="#a78bfa" r="5">
+<animate attributename="r" dur="2s" repeatcount="indefinite" values="3;7;3"></animate>
+</circle>
+<!-- Manipulator Arm holding Data Slate -->
+<path d="M 38 68 L 16 75 L 22 92" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="4.5"></path>
+<path d="M 82 68 L 98 72 L 92 88" fill="none" stroke="#475569" stroke-linecap="round" stroke-width="4.5"></path>
+<!-- Sensor Array Head -->
+<rect fill="url(#res-metal)" height="30" rx="10" stroke="#ffffff" stroke-width="0.8" width="36" x="42" y="24"></rect>
+<!-- Lateral Optic Periscopes -->
+<circle cx="38" cy="34" fill="#c084fc" r="3.5"></circle>
+<circle cx="82" cy="34" fill="#c084fc" r="3.5"></circle>
+<!-- Double Eye Goggles -->
+<circle cx="53" cy="39" fill="#1e1b4b" r="6"></circle>
+<circle cx="67" cy="39" fill="#1e1b4b" r="6"></circle>
+<circle cx="53" cy="39" fill="#c084fc" r="3"></circle>
+<circle cx="67" cy="39" fill="#c084fc" r="3"></circle>
+</svg>
+</div>
+<div class="mt-1 flex items-center gap-1 font-label-xs text-label-xs text-[#5b21b6] bg-surface-container-lowest/80 px-2 py-0.5 rounded shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-[#8b5cf6]">hub</span>
+<span>Graph Vectoring</span>
+</div>
+</div>
+<!-- FLOATING STREAMING THUMBNAIL CARD NEXT TO RESEARCHER -->
+<div class="absolute right-[8%] top-[34%] z-30 max-w-[210px] bg-surface-container-lowest/90 backdrop-blur-xl p-space-sm rounded-xl shadow-lg border-0 transition-transform duration-200 hover:scale-105">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-xs text-label-xs font-bold text-on-surface tracking-wider">STREAMING</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container-high px-1 py-0.2 rounded text-secondary font-mono">green</span>
+</div>
+<!-- Thumbnail Image Preview Mock -->
+<div class="relative w-full h-20 rounded bg-surface-container-high overflow-hidden mb-1.5">
+<img class="w-full h-full object-cover" data-alt="High-resolution isometric vector topology wireframe showing connected neural nodes, illuminated cyan and royal purple data stream matrices, and robotic workspace schematics with metallic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrxMpBz_mKCRPV7onMbZ0WyKQyCK2657wm4efeoFM84ordqczs7QdVqyvcAA_eyCVHJj3WIQEh2y29EbHS02kfqxBGC1jrxW5uQ-oXt69gN4WWAydyzofJgpXFyQt92D3fVxeKno1akpPyfp_dQfuVGBs8Srp-QQSmLrDiYyyMpI7FNLDp1wnfzAsSuqRIf6rGlogjKnWiI28S4S294kNbjo5Z9oGoiIKKsXj3lJ3OnIfmrODiWqo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex items-end p-1">
+<span class="font-code-sm text-code-sm text-on-primary font-mono text-[10px]">Aug 22 · 55 images</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface font-semibold truncate">AI.node_cache</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant hover:text-on-surface cursor-pointer">open_in_new</span>
+</div>
+</div>
+<!-- FLOATING DATA FLOW BOARD OVERLAY -->
+<div class="absolute left-[12%] top-[24%] z-10 hidden xl:flex flex-col gap-1 p-2 bg-surface-container-lowest/85 backdrop-blur-md rounded-lg shadow-sm">
+<span class="font-label-xs text-label-xs text-on-surface-variant">PIPELINE STAGE</span>
+<div class="flex items-center gap-2">
+<div class="w-20 bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full w-[84%]"></div>
+</div>
+<span class="font-metric-val text-metric-val text-on-surface">84%</span>
+</div>
+</div>
+</div>
+<!-- BOTTOM CANVAS VIEWPORT CONTROLS (Floating Glass Pill) -->
+<div class="absolute bottom-4 left-4 right-4 z-30 flex items-center justify-between pointer-events-none">
+<!-- Room Presets Group -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest/90 backdrop-blur-xl p-1 rounded-full shadow-md pointer-events-auto">
+<button class="px-space-md py-1 rounded-full font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5" title="Fit Room to Canvas">
+<span class="material-symbols-outlined text-[16px]">crop_free</span>
+<span>Fit Room</span>
+</button>
+<button class="px-space-md py-1 rounded-full font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5" title="Center Focus to Selected Agent">
+<span class="material-symbols-outlined text-[16px]">filter_center_focus</span>
+<span>Center Focus</span>
+</button>
+<button class="px-space-md py-1 rounded-full font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5" title="Reset Zoom to 100%">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+<span>100% Zoom</span>
+</button>
+</div>
+<!-- Perspective Angle Switcher -->
+<div class="flex items-center gap-0.5 bg-surface-container-lowest/90 backdrop-blur-xl p-1 rounded-full shadow-md pointer-events-auto">
+<button class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-sm text-code-sm font-semibold" title="Isometric View (Current)">ISO</button>
+<button class="w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center font-code-sm text-code-sm" title="Top Down Orthographic">TOP</button>
+<button class="w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center font-code-sm text-code-sm" title="Front Rig View">FRT</button>
+<button class="w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center" title="Free Orbit View">
+<span class="material-symbols-outlined text-[15px]">3d_rotation</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Live Agent Reasoning & Terminal Panel (50% desktop split) -->
+<div class="w-full 2xl:w-1/2 h-full flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Primary Agent Header Ribbon -->
+<div class="flex items-center justify-between px-margin-dense py-2.5 bg-surface-container-low shadow-sm z-10 flex-shrink-0">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-8 h-8 rounded-lg bg-[#f97316] flex items-center justify-center text-on-primary font-bold shadow-sm flex-shrink-0">
+<span class="font-code-sm text-code-sm">SE</span>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#10b981] ring-2 ring-surface-container-low"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 truncate">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold truncate">Systems Engineer</span>
+<span class="text-on-surface-variant font-code-sm text-code-sm">·</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Claude 3.5 Sonnet</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Arch-01 Core Executor</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-xs text-label-xs text-secondary font-semibold">HOT RUNNER</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim animate-pulse"></span>
+<span class="font-metric-val text-metric-val text-on-surface">48,210 tkns</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">($0.076)</span>
+</div>
+<span class="bg-[#10b981]/15 text-[#047857] font-code-sm text-code-sm px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
+            Working
+          </span>
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant" title="Agent Action Settings">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Nested Multi-Pane Split: Reasoning / Terminal Flow & Right Telemetry Sidebar -->
+<div class="flex-1 flex flex-row overflow-hidden">
+<!-- Center-Right: Step Stream, Terminal & Prompts -->
+<div class="flex-1 flex flex-col overflow-y-auto px-margin-dense py-space-md gap-space-md">
+<!-- Reasoning Trace & Environment Setup Box -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+<span class="font-code-lg text-code-lg text-on-surface font-semibold">Reasoning Trace &amp; Environment Setup</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">STEP 4/4</span>
+</div>
+<!-- Accordion Steps -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2 text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[#10b981] text-[16px] mt-0.5 flex-shrink-0">check_circle</span>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-medium text-on-surface">Validating dynamic mac bundle structure</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">142ms</span>
+</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant truncate">Measuring build path <span class="bg-surface-container-highest/60 px-1 py-0.5 rounded font-mono text-on-surface">/Applications/SAMS.app fresh</span> artifacts for signing parity.</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[#10b981] text-[16px] mt-0.5 flex-shrink-0">check_circle</span>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-medium text-on-surface">Inspecting log analysis for WebGPU canvas leak</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">318ms</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Allocated frame buffers release on unmount; 0 leaks identified across 64 mock cycles.</p>
+</div>
+</div>
+</div>
+<!-- Build Snapshot & Diagnostics Artifact Card -->
+<div class="mt-space-sm bg-surface-container-lowest rounded-lg p-space-sm flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center flex-shrink-0 overflow-hidden">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[20px]">layers</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface truncate">artifact-pane-p2-2026.pkg</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1 rounded text-on-surface-variant">4.2 MB</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Diagnostics Snapshot · ARM64 Universal Binary</span>
+</div>
+</div>
+<button class="px-space-md py-1 rounded bg-primary text-on-primary font-code-sm text-code-sm hover:opacity-90 transition-opacity flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Inspect</span>
+</button>
+</div>
+</div>
+<!-- Terminal Process Output Box (Obsidian Tech Theme #0f172a / #090d16) -->
+<div class="flex flex-col bg-[#090d16] text-[#e2e8f0] rounded-xl overflow-hidden shadow-md">
+<!-- Terminal Header -->
+<div class="flex items-center justify-between px-space-md py-2 bg-[#0f172a]">
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10b981]/80"></span>
+</div>
+<span class="font-code-sm text-code-sm text-slate-400 font-mono ml-2">bash: /runtime/agent-runner/mac-x64</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs bg-slate-800 text-emerald-400 px-1.5 py-0.5 rounded font-mono">EXIT: 0</span>
+<button class="text-slate-400 hover:text-white" title="Copy Output Log">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Terminal Stream Body -->
+<div class="p-space-md font-code-sm text-code-sm font-mono flex flex-col gap-1 text-slate-300 leading-relaxed overflow-x-auto">
+<div class="flex items-center text-slate-500">
+<span>cortxos-agent@worker-4 ~ % </span>
+<span class="text-cyan-400 ml-1.5">npm run build:desktop:mac</span>
+</div>
+<div class="text-slate-400">» [Vite:electron] packaging target platforms darwin-arm64, darwin-x64...</div>
+<div class="text-slate-400">» Applying width-fix patch: [2/2] CSS Grid column 50-50 constraints settled.</div>
+<div class="text-cyan-300">» Running vitest agent-node integrity test-bed...</div>
+<div class="text-emerald-400 font-semibold mt-1">✓ touched tests 31/31, full suite 2132/2132 passed (1.84s)</div>
+<div class="text-slate-500">» Bundle verified SHA-256: 7f8a920bc481...</div>
+<div class="flex items-center gap-1.5 text-slate-400 mt-1">
+<span class="text-emerald-400 animate-pulse">●</span>
+<span>Standby: Listening for multi-agent dispatch queue signals.</span>
+</div>
+</div>
+</div>
+<!-- Sub-agent Parallel Execution Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Astra Card -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-md bg-secondary flex items-center justify-center text-on-secondary font-code-sm text-code-sm font-bold">AS</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">Astra Runtime</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">GPT-4o Astra</span>
+</div>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">2m 44s</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Shader ambient occlusion &amp; perspective pass calculated without buffer stalls.</p>
+<button class="mt-auto w-full py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-code-sm text-code-sm font-medium transition-colors flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">display_settings</span>
+<span>View Screen</span>
+</button>
+</div>
+<!-- Improve Agent Question UI Card -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-md bg-[#10b981] flex items-center justify-center text-on-primary font-code-sm text-code-sm font-bold">QA</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold leading-tight">Verification Gate</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Suite-P2 Review</span>
+</div>
+</div>
+<span class="font-label-xs text-label-xs bg-[#10b981]/15 text-[#047857] px-1.5 py-0.5 rounded font-mono font-semibold">2,132 OK</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">All visual regressions resolved across high-DPI display presets.</p>
+<button class="mt-auto w-full py-1.5 rounded bg-primary text-on-primary hover:opacity-90 font-code-sm text-code-sm font-medium transition-opacity flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Approve</span>
+</button>
+</div>
+</div>
+<!-- Bottom Collaborative Chat Input Box -->
+<div class="mt-auto pt-2">
+<div class="flex items-center gap-space-sm bg-surface-container-low rounded-2xl p-1.5 shadow-sm">
+<button class="w-8 h-8 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors flex-shrink-0" title="Attach Code Artifact or Node">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+</button>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none px-1" placeholder="Ask · your first message adapts this conversation" type="text"/>
+<div class="flex items-center gap-1 flex-shrink-0">
+<button class="w-7 h-7 rounded-full text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Voice dictation">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+</button>
+<button class="h-8 px-space-md rounded-full bg-primary text-on-primary font-code-sm text-code-sm font-semibold flex items-center gap-1 hover:opacity-90 transition-opacity">
+<span>Send</span>
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry & System Constraints Sidebar (Rightmost Column) -->
+<div class="w-72 bg-surface-container-low/50 flex flex-col p-space-md gap-space-md flex-shrink-0 overflow-y-auto hidden lg:flex">
+<!-- Synced Status Header -->
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Audit SAMS System</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center gap-1 font-label-xs text-label-xs text-secondary font-mono">
+<span class="material-symbols-outlined text-[12px]">sync</span>
+<span>Synced 4s ago</span>
+</div>
+</div>
+<!-- Constraints & Backlog Checklist -->
+<div class="flex flex-col gap-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant tracking-wider font-bold">CONSTRAINTS &amp; BACKLOG</span>
+<div class="flex flex-col gap-1.5 bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-[#10b981] text-[16px]">check_box</span>
+<span class="font-body-sm text-body-sm text-on-surface line-through text-on-surface-variant">Electron 50-50 Stage split</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-[#10b981] text-[16px]">check_box</span>
+<span class="font-body-sm text-body-sm text-on-surface line-through text-on-surface-variant">Iso light grid floor</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-[#10b981] text-[16px]">check_box</span>
+<span class="font-body-sm text-body-sm text-on-surface line-through text-on-surface-variant">Agent avatars visual rigor</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_box_outline_blank</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Verify sandbox token quota</span>
+</label>
+</div>
+</div>
+<!-- Edited Files Summary -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant tracking-wider font-bold">EDITED FILES</span>
+<span class="font-metric-val text-metric-val text-[#10b981]">+55.7k <span class="text-[#ba1a1a]">-12.2k</span></span>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-lowest p-space-sm rounded-xl shadow-sm font-code-sm text-code-sm">
+<div class="flex items-center justify-between py-1">
+<span class="text-on-surface truncate">WorkspaceStage.tsx</span>
+<span class="text-secondary font-mono">+482</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-on-surface truncate">AgentAvatarPBR.svg</span>
+<span class="text-secondary font-mono">+1.2k</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-on-surface truncate">RunnerTelemetry.ts</span>
+<span class="text-secondary font-mono">+290</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-on-surface-variant truncate">electron-main.cjs</span>
+<span class="text-[#ba1a1a] font-mono">-94</span>
+</div>
+</div>
+</div>
+<!-- Active Fleet List -->
+<div class="flex flex-col gap-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant tracking-wider font-bold">DISPATCHED AGENTS</span>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#f97316]"></span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">Arch-01</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">SE // 98%</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">SecOps-04</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">AU // 0%</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#8b5cf6]"></span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">Vector-09</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">RE // 41%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for Workspace Stage buttons
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Visual feedback tap state
+      btn.style.transform = 'scale(0.97)';
+      setTimeout(() => { btn.style.transform = ''; }, 120);
+    });
+  });
+</script></main></div></body></html>

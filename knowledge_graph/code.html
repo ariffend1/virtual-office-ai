@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#f8f9ff","on-tertiary-fixed":"#23005c","surface-container-highest":"#d3e4fe","on-primary-container":"#7c839b","on-secondary":"#ffffff","on-primary":"#ffffff","surface-container-low":"#eff4ff","primary":"#000000","tertiary-container":"#23005c","secondary":"#00687a","on-background":"#0b1c30","secondary-fixed-dim":"#4cd7f6","on-tertiary-fixed-variant":"#5516be","on-error":"#ffffff","secondary-container":"#57dffe","on-primary-fixed-variant":"#3f465c","tertiary":"#000000","surface-container":"#e5eeff","surface-bright":"#f8f9ff","on-secondary-fixed-variant":"#004e5c","surface-container-high":"#dce9ff","outline":"#76777d","error":"#ba1a1a","inverse-primary":"#bec6e0","on-surface-variant":"#45464d","outline-variant":"#c6c6cd","on-secondary-container":"#006172","background":"#f8f9ff","on-secondary-fixed":"#001f26","error-container":"#ffdad6","on-primary-fixed":"#131b2e","surface-tint":"#565e74","on-error-container":"#93000a","on-surface":"#0b1c30","inverse-on-surface":"#eaf1ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#bec6e0","tertiary-fixed":"#e9ddff","secondary-fixed":"#acedff","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","surface-dim":"#cbdbf5","primary-container":"#131b2e","tertiary-fixed-dim":"#d0bcff","on-tertiary-container":"#9466ff","inverse-surface":"#213145","on-tertiary":"#ffffff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"0.75rem","gutter-dense":"0.5rem","space-lg":"1.25rem","space-xs":"0.25rem","space-xl":"2rem","gutter":"1rem","margin-dense":"0.75rem","space-sm":"0.5rem","margin":"1.5rem"},fontFamily:{"code-lg":["JetBrains Mono"],"metric-val":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"headline-md":["Inter"],"code-sm":["JetBrains Mono"],"label-xs":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg":["Inter"],"display-lg":["Inter"]},fontSize:{"code-lg":["13px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"500"}],"metric-val":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"title-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"500"}],"code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"400"}],"label-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md"><div class="flex flex-col items-center gap-space-md w-full"><button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" title="Agent Core Grid"><span class="material-symbols-outlined text-[20px]">hub</span></button><div class="w-8 h-px bg-surface-container-high"></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Systems Engineer (Arch-01)"><span class="font-code-sm text-code-sm font-semibold">SE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Auditor Agent (SecOps)"><span class="font-code-sm text-code-sm font-semibold">AU</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Deep Researcher"><span class="font-code-sm text-code-sm font-semibold">RE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Astra Runtime Coordinator"><span class="font-code-sm text-code-sm font-semibold">AS</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></button></div></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Toggle Canvas Grid"><span class="material-symbols-outlined text-[20px]">grid_4x4</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Layer Tree / Node Hierarchy"><span class="material-symbols-outlined text-[20px]">account_tree</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="System Settings"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-dense"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CortxOS Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ7UinOZG_AhA-VCYlPgg5S3Y7sMMxzskKbLaxaTklyhzwIFS1otuKzDlFjLMgf3DDfJPqzJQAWyWLXBHnYGG8JYSWex3g1xq-PFN9P0U6WpG_90Q-2-t-MPlcxqFvrhWVAPG1BPdrLuBnwt8T3eZvIFtbulsLWKD1ekOLbmrwcGy0Wrb2QpYg6ROPVRevWX-6BgySP8Xgi6XDo1dPFsf13cOfwVsZsOFKXJEWvdcAnwvKYA5yjgM"/><span class="font-code-sm text-code-sm text-on-surface-variant">|</span><span class="font-title-sm text-title-sm text-on-surface font-semibold">SAMS Studio</span><span class="font-label-xs text-label-xs bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">v2.4-PROD</span></div><nav class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded"><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="3d-workspace" href="#">3D Workspace</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="training-room" href="#">Training Room</a><a aria-current="page" class="px-space-md py-1 transition-colors bg-primary-container text-on-primary font-medium rounded" data-path="knowledge-graph" href="#">Knowledge Graph</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-and-pipeline" href="#">Audit &amp; Pipeline</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-1 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-1.5 mr-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-metric-val text-metric-val text-on-surface">4 ACTIVE</span></div><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">FPS:</span><span class="font-metric-val text-metric-val text-on-surface">60</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">LAT:</span><span class="font-metric-val text-metric-val text-on-surface">28ms</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">TOK:</span><span class="font-metric-val text-metric-val text-on-surface">48.2k</span><span class="font-label-xs text-label-xs text-on-surface-variant">($0.076)</span></div><div class="flex items-center bg-surface-container-low p-0.5 rounded-md"><button class="px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-primary text-on-primary">Auto</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Spot</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Manual</button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Infinite Canvas Container -->
+<div class="relative w-full h-[calc(100vh-3.5rem)] overflow-hidden select-none bg-surface" id="graph-viewport">
+<!-- Dot Grid Layer -->
+<div class="absolute inset-0 pointer-events-none opacity-40" style="background-image: radial-gradient(#76777d 1px, transparent 1px); background-size: 24px 24px;"></div>
+<!-- Top Canvas Floating Command & Filter Toolbar -->
+<div class="absolute top-4 left-6 right-6 z-30 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-space-sm pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-1.5 rounded-xl shadow-md">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">filter_alt</span>
+<div class="flex items-center gap-1 bg-surface-container-low p-0.5 rounded-lg">
+<button class="filter-chip active px-space-sm py-0.5 rounded text-code-sm font-code-sm bg-primary text-on-primary" data-agent="all">All Clusters</button>
+<button class="filter-chip px-space-sm py-0.5 rounded text-code-sm font-code-sm text-on-surface-variant hover:text-on-surface" data-agent="se">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim mr-1"></span>Systems Eng
+          </button>
+<button class="filter-chip px-space-sm py-0.5 rounded text-code-sm font-code-sm text-on-surface-variant hover:text-on-surface" data-agent="au">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary mr-1"></span>Auditor
+          </button>
+<button class="filter-chip px-space-sm py-0.5 rounded text-code-sm font-code-sm text-on-surface-variant hover:text-on-surface" data-agent="re">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim mr-1"></span>Researcher
+          </button>
+</div>
+<span class="text-outline-variant font-code-sm">|</span>
+<!-- Search Input Bar -->
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2 py-1 rounded-lg w-64">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">search</span>
+<input class="bg-transparent border-none text-code-sm font-code-sm text-on-surface focus:outline-none w-full placeholder:text-outline" id="node-search" placeholder="Search memory nodes ('sams', 'dock')..." type="text"/>
+<kbd class="text-label-xs font-label-xs bg-surface-container px-1 py-0.5 rounded text-on-surface-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Graph Mode Toggles & Stats Pill -->
+<div class="flex items-center gap-space-sm pointer-events-auto">
+<div class="flex items-center bg-surface-container-lowest/90 backdrop-blur-md p-1 rounded-xl shadow-md gap-1">
+<button class="layout-toggle px-space-sm py-1 rounded-lg text-code-sm font-code-sm flex items-center gap-1 bg-surface-container text-on-surface" title="Force Directed Layout">
+<span class="material-symbols-outlined text-[16px]">bubble_chart</span>
+            Force
+          </button>
+<button class="layout-toggle px-space-sm py-1 rounded-lg text-code-sm font-code-sm flex items-center gap-1 text-on-surface-variant hover:text-on-surface" title="Hierarchical Tree">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+            Tree
+          </button>
+<button class="layout-toggle px-space-sm py-1 rounded-lg text-code-sm font-code-sm flex items-center gap-1 text-on-surface-variant hover:text-on-surface" title="Isometric 3D Layers">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+            Isometric 3D
+          </button>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-1.5 rounded-xl shadow-md flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-ping"></span>
+<span class="text-label-xs font-label-xs text-on-surface font-semibold tracking-wider uppercase">GRAPH ENGINE: ONLINE</span>
+<span class="text-code-sm font-code-sm text-on-surface-variant">34 Nodes</span>
+</div>
+</div>
+</div>
+<!-- Scalable / Pannable Workspace Surface -->
+<div class="absolute inset-0 w-[3000px] h-[2200px] origin-top-left transition-transform duration-75 cursor-grab active:cursor-grabbing" id="canvas-surface" style="transform: matrix(1, 0, 0, 1, -120, -80);">
+<!-- Vector Spline Overlay for Neural Edge Connections -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="edge-pulse-re" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#9466ff" stop-opacity="0.2"></stop>
+<stop offset="50%" stop-color="#9466ff" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#4cd7f6" stop-opacity="0.2"></stop>
+</lineargradient>
+<lineargradient id="edge-pulse-se" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#00687a" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#57dffe" stop-opacity="0.9"></stop>
+</lineargradient>
+</defs>
+<!-- Dynamic Connection Splines -->
+<path class="animate-[dash_30s_linear_infinite]" d="M 440,380 C 580,380 620,290 780,290" fill="none" stroke="#d3e4fe" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 440,380 C 560,420 580,480 720,480" fill="none" stroke="#d3e4fe" stroke-width="2"></path>
+<path d="M 440,380 C 520,380 540,600 700,620" fill="none" stroke="#d3e4fe" stroke-width="2"></path>
+<!-- Cross-cluster linking (SAMS first-man to pipeline & creative) -->
+<path d="M 1020,290 C 1140,290 1200,340 1340,340" fill="none" stroke="url(#edge-pulse-re)" stroke-width="2.5"></path>
+<path d="M 1020,290 C 1120,260 1140,160 1280,160" fill="none" stroke="#9466ff" stroke-dasharray="2 3" stroke-opacity="0.5" stroke-width="1.5"></path>
+<path d="M 940,480 C 1040,500 1160,580 1280,680" fill="none" stroke="url(#edge-pulse-se)" stroke-width="2"></path>
+<!-- Safety Auditor Ring Links -->
+<path d="M 440,760 C 540,760 620,800 760,820" fill="none" stroke="#00687a" stroke-opacity="0.4" stroke-width="1.5"></path>
+<path d="M 440,760 C 520,720 620,680 700,640" fill="none" stroke="#d3e4fe" stroke-width="1.5"></path>
+<path d="M 960,820 C 1100,820 1180,740 1280,700" fill="none" stroke="#4cd7f6" stroke-dasharray="5 5" stroke-opacity="0.6" stroke-width="2"></path>
+<!-- Sub-agent target indicators -->
+<circle cx="1020" cy="290" fill="#00687a" r="4"></circle>
+<circle cx="780" cy="290" fill="#00687a" r="4"></circle>
+<circle cx="1340" cy="340" fill="#9466ff" r="5"></circle>
+<circle cx="1280" cy="680" fill="#4cd7f6" r="4"></circle>
+</svg>
+<!-- ================= CLUSTER 1: WORKSPACE BUILDER ================= -->
+<div class="absolute left-[200px] top-[320px] flex flex-col items-center">
+<!-- Root Node Card -->
+<div class="group bg-surface-container-lowest shadow-md rounded-xl p-space-md w-60 hover:shadow-xl transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-xs font-label-xs bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface-variant font-mono">CLUSTER ROOT</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<h3 class="text-title-sm font-title-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">view_quilt</span>
+            workspace-builder
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Multi-pane orchestration ground with dynamic pane docking logic.</p>
+<div class="mt-space-sm pt-2 flex items-center justify-between text-code-sm font-code-sm text-on-surface-variant">
+<span>6 subnodes</span>
+<span class="text-secondary font-semibold">Ready</span>
+</div>
+</div>
+</div>
+<!-- Node: sams-submissions-first-man (ACTIVE SELECTED) -->
+<div class="absolute left-[780px] top-[240px] z-20">
+<div class="node-card active bg-surface-container-lowest ring-2 ring-secondary shadow-xl rounded-xl p-space-md w-72 transition-transform hover:-translate-y-0.5 cursor-pointer" data-node="sams-submissions-first-man">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-xs font-label-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-semibold">SELECTED NODE</span>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono">ID: #4092-A</span>
+</div>
+<div class="flex items-start gap-2 mt-1">
+<span class="material-symbols-outlined text-secondary text-[22px]">deployed_code</span>
+<div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-semibold leading-tight">sams-submissions-first-man</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">First operational submission workflow coordinator.</p>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="text-code-sm font-code-sm bg-surface-container px-2 py-0.5 rounded text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">call_split</span> 8 Conns
+            </span>
+<span class="text-code-sm font-code-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">v2.19</span>
+<span class="text-label-xs font-label-xs ml-auto text-secondary-fixed-dim bg-primary-container px-1.5 py-0.5 rounded font-mono">CANONICAL</span>
+</div>
+</div>
+</div>
+<!-- Node: macos-dock-split-ng -->
+<div class="absolute left-[720px] top-[440px]">
+<div class="node-card bg-surface-container-lowest shadow-md rounded-xl p-space-md w-64 hover:shadow-lg transition-all cursor-pointer" data-node="macos-dock-split-ng">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-xs font-label-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">UI-LAYOUT</span>
+<span class="text-code-sm font-code-sm text-outline">12kb</span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-semibold">macos-dock-split-ng</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Split-pane dock manager supporting horizontal snapping.</p>
+<div class="mt-2 text-label-xs font-label-xs text-on-surface-variant flex gap-2">
+<span>Parent: workspace-builder</span>
+<span>•</span>
+<span class="text-secondary font-medium">3 backlinks</span>
+</div>
+</div>
+</div>
+<!-- Node: pane-docking-v2 -->
+<div class="absolute left-[700px] top-[590px]">
+<div class="node-card bg-surface-container-lowest shadow-md rounded-xl p-space-md w-64 hover:shadow-lg transition-all cursor-pointer" data-node="pane-docking-v2">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-xs font-label-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">ENGINE</span>
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-semibold">pane-docking-v2</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Multi-monitor docking and viewport partition state machines.</p>
+</div>
+</div>
+<!-- ================= CLUSTER 2: CREATIVE ASSETS & STREAMING BOARD ================= -->
+<!-- Giant Visual Canvas Node Board -->
+<div class="absolute left-[1340px] top-[140px] w-[540px]">
+<div class="bg-surface-container-lowest shadow-xl rounded-xl overflow-hidden">
+<!-- Streaming Header -->
+<div class="bg-surface-container-high px-space-md py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-title-sm font-title-sm text-on-surface font-semibold">STREAMING · green · Aug 22</span>
+</div>
+<span class="text-label-xs font-label-xs bg-surface-container px-2 py-0.5 rounded text-on-surface-variant font-mono">use case stylized · 55 images</span>
+</div>
+<!-- Streaming Thumbnail Gallery Grid -->
+<div class="p-space-md grid grid-cols-3 gap-2 bg-surface-container-low">
+<div class="relative group rounded-lg overflow-hidden h-28 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Cybernetic workstation UI card with glowing holographic HUD telemetry panels in cyan and deep charcoal tones, highly detailed render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAov66Pw1n3fkYQyEmnW8d_1R1CV_18YeECB6P7HuCWpqvbEO-i8r1wOaA_AbjXSDCy7fsXKw9OMk--hhO4WgTUfAhL4TpuuZLuq-hBpjR9g6lPogzNweTmMlReP15Q8_BbgreZu5eCp4UbWroRPoutoSmoEYQiwThbxUxslx65jQ7Z2-U1Wv2Wr_o9umHi16NaX4A2_3TLw9lKgsuDarqaefBFRIFeBjYYjNWa2MiLY79amx8wcic"/>
+<div class="absolute bottom-1 left-1 bg-primary/80 backdrop-blur-sm px-1.5 py-0.5 rounded text-label-xs font-label-xs text-on-primary">HUD_01.exr</div>
+</div>
+<div class="relative group rounded-lg overflow-hidden h-28 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Minimalist isometric 3D architectural workspace room render with porcelain surfaces, frosted cyber-glass panes, ambient studio light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnvLCZzF_5kyrdIbWSqr6QNX7PFaYITlrA56heXA2mdrPvup3Gp1976Qi9gdOM54ksvsFTWBXEIAH_upJOVozRXbDhuobz-xdnbJ27ChNNYmgNJvXsLN7oaIF4dAFTISm-E_-bJtxevtHpFwL9ObL97S2EP7oHcj7vN4rExNYioMs2N3xFojZoYM-H7NhEvqxLSxpLGri83FgLlHwnUPR1WJzcxiSiIy779-9nj5bDuGrDBOMlnTs"/>
+<div class="absolute bottom-1 left-1 bg-primary/80 backdrop-blur-sm px-1.5 py-0.5 rounded text-label-xs font-label-xs text-on-primary">Room_Iso.glb</div>
+</div>
+<div class="relative group rounded-lg overflow-hidden h-28 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Abstract computational neural lattice visualization with translucent green and lavender data nodes connecting on a clean ceramic plane." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCEO0ObDj9806ilhMh7e4v250UrOnLCdcrYJydyPX8CR-yuIrkVL-Vi-EGRMP0NzwmaO4Tuxj1jvfe6c2qKMRTMh5o89jDpKDMEjUPdOImMPl2TjoUmPiD5XJpiLuV4dPaMNRRVBRnw32GFDMVOHDT7IvmEiGssiKsuhnGvrC3hux4K8GY9t4TyQhc7vPYsQF1RgVFLlbvEkRLlPORt_94v1hnA_p45pK1JhgcQYjQgb9BSx5-8d4"/>
+<div class="absolute bottom-1 left-1 bg-primary/80 backdrop-blur-sm px-1.5 py-0.5 rounded text-label-xs font-label-xs text-on-primary">Lattice_v4.png</div>
+</div>
+</div>
+<!-- Color Palette Swatch Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-label-xs font-label-xs text-on-surface-variant uppercase tracking-wider">Active Palettes:</span>
+<div class="flex gap-1.5">
+<span class="w-4 h-4 rounded-full bg-secondary shadow-sm" title="#00687a - Secondary Cyan"></span>
+<span class="w-4 h-4 rounded-full bg-secondary-fixed-dim shadow-sm" title="#4cd7f6 - Electric Aqua"></span>
+<span class="w-4 h-4 rounded-full bg-tertiary-container shadow-sm" title="#23005c - Deep Obsidian Violet"></span>
+<span class="w-4 h-4 rounded-full bg-surface-container-highest shadow-sm" title="#d3e4fe - Porcelain Highlight"></span>
+</div>
+</div>
+<span class="text-code-sm font-code-sm text-on-surface-variant font-mono">Buffer: 4.8MB/s</span>
+</div>
+</div>
+<!-- Mini-robot sub-agent: Researcher (Purple) -->
+<div class="absolute -top-6 -left-12 flex items-center gap-2 pointer-events-none">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary shadow-xl flex items-center justify-center relative animate-bounce" style="animation-duration: 3s;">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed-dim">psychology</span>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-tertiary-fixed-dim border-2 border-surface-container-lowest"></span>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px- space-md py-1 rounded-full shadow-md">
+<span class="text-code-sm font-code-sm font-semibold text-on-tertiary-fixed flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+              Researcher · Analyzing 55 Assets
+            </span>
+</div>
+</div>
+</div>
+<!-- ================= CLUSTER 3: AUTOMATION & SHARED PACKAGES ================= -->
+<div class="absolute left-[1280px] top-[640px] flex flex-col gap-space-md">
+<!-- Node: ci-cd-pipeline -->
+<div class="node-card relative bg-surface-container-lowest shadow-md rounded-xl p-space-md w-72 hover:shadow-lg transition-all cursor-pointer" data-node="ci-cd-pipeline">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-xs font-label-xs bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-mono">AUTOMATION</span>
+<span class="text-label-xs font-label-xs text-secondary font-semibold">RUNNING</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync</span>
+<h4 class="text-title-sm font-title-sm text-on-surface font-semibold">ci-cd-pipeline</h4>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Multi-arch build runner with automated safety regression verification.</p>
+<!-- Embedded Mini-robot sub-agent: Systems Engineer (Orange/Cyan) -->
+<div class="absolute -top-5 -right-6 flex items-center pointer-events-none">
+<div class="w-10 h-10 rounded-xl bg-secondary text-on-secondary shadow-lg flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div class="bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm text-label-xs font-label-xs font-mono text-on-surface ml-1">
+              SE-01 Active
+            </div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm w-72">
+<!-- Node: unit-tests-runner -->
+<div class="node-card bg-surface-container-lowest shadow-sm rounded-lg p-2.5 hover:shadow-md transition-all cursor-pointer" data-node="unit-tests-runner">
+<span class="text-label-xs font-label-xs text-on-surface-variant block font-mono">TESTS</span>
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">unit-tests-runner</span>
+<span class="text-label-xs font-label-xs text-secondary-fixed-dim block mt-1">99.8% Passed</span>
+</div>
+<!-- Node: rust-ffi-fetch -->
+<div class="node-card bg-surface-container-lowest shadow-sm rounded-lg p-2.5 hover:shadow-md transition-all cursor-pointer" data-node="rust-ffi-fetch">
+<span class="text-label-xs font-label-xs text-on-surface-variant block font-mono">NATIVE</span>
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">rust-ffi-fetch</span>
+<span class="text-label-xs font-label-xs text-on-surface-variant block mt-1">1.2ms latency</span>
+</div>
+</div>
+<!-- Node: memory-index-sqlite -->
+<div class="node-card bg-surface-container-lowest shadow-sm rounded-lg p-space-sm w-72 hover:shadow-md transition-all cursor-pointer" data-node="memory-index-sqlite">
+<div class="flex items-center justify-between">
+<span class="text-body-sm font-body-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">database</span>
+              memory-index-sqlite
+            </span>
+<span class="text-label-xs font-label-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">2.4GB</span>
+</div>
+</div>
+</div>
+<!-- ================= CLUSTER 4: SAFETY & AUDITOR NODES ================= -->
+<div class="absolute left-[760px] top-[760px] flex flex-col gap-3">
+<!-- Safety Cluster Parent Card -->
+<div class="node-card relative bg-surface-container-lowest shadow-md rounded-xl p-space-md w-80 hover:shadow-xl transition-all cursor-pointer" data-node="audit-constraints">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-xs font-label-xs bg-secondary/15 text-secondary px-2 py-0.5 rounded font-mono font-medium">POLICY ENFORCEMENT</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">verified_user</span>
+<h4 class="text-title-sm font-title-sm text-on-surface font-semibold">audit-constraints</h4>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Deterministic guardrails verifying state transformations across agents.</p>
+<!-- Auditor Mini-Robot Avatar with scanning shield -->
+<div class="absolute -bottom-4 -left-10 flex items-center gap-1.5 pointer-events-none">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-highest flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[20px] text-secondary">security</span>
+<span class="absolute inset-0 rounded-full border-2 border-secondary animate-ping opacity-25"></span>
+</div>
+<div class="bg-surface-container-lowest shadow-sm px-2 py-0.5 rounded text-label-xs font-label-xs text-secondary font-mono">
+              Auditor Scanning
+            </div>
+</div>
+</div>
+<div class="flex gap-2 w-80">
+<div class="node-card bg-surface-container-lowest p-2 rounded-lg shadow-sm flex-1 cursor-pointer hover:bg-surface-container-low" data-node="memory-safety">
+<span class="text-code-sm font-code-sm font-medium text-on-surface block">memory-safety</span>
+<span class="text-label-xs font-label-xs text-on-surface-variant">0 Leaks detected</span>
+</div>
+<div class="node-card bg-surface-container-lowest p-2 rounded-lg shadow-sm flex-1 cursor-pointer hover:bg-surface-container-low" data-node="token-budget-limiter">
+<span class="text-code-sm font-code-sm font-medium text-on-surface block">token-limiter</span>
+<span class="text-label-xs font-label-xs text-secondary">100k cap</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= FLOATING INSPECT DRAWER (RIGHT PANEL) ================= -->
+<div class="absolute top-16 right-6 bottom-6 w-96 bg-surface-container-lowest shadow-2xl rounded-2xl p-space-md z-40 flex flex-col justify-between overflow-y-auto transition-transform duration-300 transform translate-x-0" id="inspect-drawer">
+<div class="flex flex-col gap-space-md">
+<!-- Drawer Header -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-label-xs font-label-xs bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-mono">NODE INSPECT</span>
+<span class="text-label-xs font-label-xs bg-secondary/15 text-secondary px-2 py-0.5 rounded-full font-semibold">8 Active Connections</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mt-1">sams-submissions-first-man</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-container-low transition-colors" id="close-inspect">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Node Meta Status Pill -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between text-code-sm font-code-sm">
+<span class="text-on-surface-variant">Cluster: Workspace Root</span>
+<span class="text-secondary font-semibold font-mono">SYNCED (0.4ms)</span>
+</div>
+<!-- Section: Forward Connections (Linked To) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-xs font-label-xs font-semibold uppercase tracking-wider text-on-surface-variant">
+<span>LINKED TO (4)</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">aero-games</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono">runtime/bin</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">workspace-builder</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono">core/layout</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">cip-git-pipeline</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono">vcs/ci</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">macos-dock-split-ng</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono">window/dock</span>
+</div>
+</div>
+</div>
+<!-- Section: Inbound Backlinks -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-label-xs font-label-xs font-semibold uppercase tracking-wider text-on-surface-variant">
+<span>BACKLINKS (4)</span>
+<span class="material-symbols-outlined text-[14px]">turn_left</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-body-sm font-body-sm text-on-surface font-mono">index</span>
+<span class="text-label-xs font-label-xs bg-surface-container-high px-1 rounded text-on-surface-variant">100%</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-body-sm font-body-sm text-on-surface font-mono">translation-matrix</span>
+<span class="text-label-xs font-label-xs bg-surface-container-high px-1 rounded text-on-surface-variant">88%</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-body-sm font-body-sm text-on-surface font-mono truncate max-w-[190px]">decision-maker-whiteboard-git</span>
+<span class="text-label-xs font-label-xs bg-surface-container-high px-1 rounded text-on-surface-variant">64%</span>
+</div>
+<div class="group bg-surface p-2 rounded-lg flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<span class="text-body-sm font-body-sm text-on-surface font-mono truncate max-w-[190px]">gzrcha-kfb-texture-transform</span>
+<span class="text-label-xs font-label-xs bg-surface-container-high px-1 rounded text-on-surface-variant">42%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer Buttons -->
+<div class="pt-space-md flex flex-col gap-2 mt-4">
+<button class="w-full h-8 bg-primary hover:bg-surface-container-highest hover:text-on-surface text-on-primary rounded text-code-sm font-code-sm font-medium flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+          Edit Node Raw Markdown
+        </button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-8 bg-surface-container-low hover:bg-surface-container text-on-surface rounded text-code-sm font-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">alt_route</span>
+            Re-route
+          </button>
+<button class="h-8 bg-surface-container-low hover:bg-surface-container text-secondary rounded text-code-sm font-code-sm font-medium flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px]">sensors</span>
+            Broadcast
+          </button>
+</div>
+</div>
+</div>
+<!-- ================= MINIMAP & ZOOM CONTROLS (BOTTOM-RIGHT) ================= -->
+<div class="absolute bottom-6 right-6 z-30 flex flex-col items-end gap-3 pointer-events-none">
+<!-- Mini Floating Canvas Chips (Zoom & Center) -->
+<div class="flex items-center gap-1.5 pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-md p-1 rounded-full shadow-md">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" id="zoom-in-btn" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" id="zoom-out-btn" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<button class="px-space-sm h-8 rounded-full flex items-center gap-1 text-code-sm font-code-sm text-on-surface hover:bg-surface-container transition-colors" id="fit-canvas-btn" title="Reset Viewport">
+<span class="material-symbols-outlined text-[16px]">center_focus_strong</span>
+          Fit Room
+        </button>
+</div>
+<!-- Minimap Topology Widget -->
+<div class="pointer-events-auto w-48 h-32 bg-surface-container-lowest/95 backdrop-blur-md rounded-xl shadow-lg p-2 flex flex-col justify-between">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant font-mono">
+<span>CLUSTER MAP</span>
+<span class="text-secondary font-semibold">1:14</span>
+</div>
+<!-- Scaled schematic drawing of clusters -->
+<div class="relative w-full h-20 bg-surface-container-low rounded overflow-hidden">
+<!-- Workspace builder dot -->
+<div class="absolute left-4 top-5 w-2 h-2 rounded-full bg-secondary"></div>
+<!-- Sams submissions active dot -->
+<div class="absolute left-14 top-4 w-3 h-3 rounded-full bg-secondary-fixed-dim ring-1 ring-secondary animate-pulse"></div>
+<!-- Creative cluster blob -->
+<div class="absolute right-4 top-2 w-12 h-8 rounded bg-tertiary-fixed-dim/40 border border-tertiary-container/30"></div>
+<!-- Automation cluster -->
+<div class="absolute right-5 bottom-2 w-8 h-6 rounded bg-secondary/30"></div>
+<!-- Auditor cluster -->
+<div class="absolute left-14 bottom-2 w-6 h-4 rounded bg-surface-tint/40"></div>
+<!-- Minimap Viewport Rect -->
+<div class="absolute inset-1 border border-primary/40 rounded pointer-events-none"></div>
+</div>
+<div class="text-label-xs font-label-xs text-on-surface-variant flex items-center justify-between">
+<span>Pan: Drag Canvas</span>
+<span class="font-mono">100%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Drag / Zoom / Inspect Logic -->
+<script>
+    (function() {
+      const surface = document.getElementById('canvas-surface');
+      const viewport = document.getElementById('graph-viewport');
+      const drawer = document.getElementById('inspect-drawer');
+      const closeInspect = document.getElementById('close-inspect');
+      const searchInput = document.getElementById('node-search');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const layoutToggles = document.querySelectorAll('.layout-toggle');
+
+      let isPanning = false;
+      let startX = 0;
+      let startY = 0;
+      let currentX = -120;
+      let currentY = -80;
+      let scale = 1;
+
+      // Surface Panning
+      viewport.addEventListener('mousedown', (e) => {
+        // Only initiate pan when clicking directly on canvas or non-interactive elements
+        if (e.target.closest('#inspect-drawer') || e.target.closest('.pointer-events-auto') || e.target.closest('.node-card')) {
+          return;
+        }
+        isPanning = true;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isPanning) return;
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+        surface.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${currentX}, ${currentY})`;
+      });
+
+      window.addEventListener('mouseup', () => {
+        isPanning = false;
+      });
+
+      // Zoom Controls
+      document.getElementById('zoom-in-btn').addEventListener('click', () => {
+        scale = Math.min(scale + 0.15, 1.8);
+        surface.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${currentX}, ${currentY})`;
+      });
+
+      document.getElementById('zoom-out-btn').addEventListener('click', () => {
+        scale = Math.max(scale - 0.15, 0.5);
+        surface.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${currentX}, ${currentY})`;
+      });
+
+      document.getElementById('fit-canvas-btn').addEventListener('click', () => {
+        scale = 1;
+        currentX = -120;
+        currentY = -80;
+        surface.style.transform = `matrix(1, 0, 0, 1, -120, -80)`;
+      });
+
+      // Drawer Close / Open Logic
+      closeInspect.addEventListener('click', () => {
+        drawer.classList.add('translate-x-full');
+      });
+
+      // Node card click to inspect
+      document.querySelectorAll('.node-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const nodeName = card.getAttribute('data-node');
+          drawer.classList.remove('translate-x-full');
+          
+          // Remove active ring from previous
+          document.querySelectorAll('.node-card').forEach(c => c.classList.remove('ring-2', 'ring-secondary'));
+          card.classList.add('ring-2', 'ring-secondary');
+        });
+      });
+
+      // Filter chips interaction
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          filterChips.forEach(c => {
+            c.classList.remove('bg-primary', 'text-on-primary');
+            c.classList.add('text-on-surface-variant');
+          });
+          chip.classList.add('bg-primary', 'text-on-primary');
+          chip.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // Layout mode toggles
+      layoutToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          layoutToggles.forEach(t => {
+            t.classList.remove('bg-surface-container', 'text-on-surface');
+            t.classList.add('text-on-surface-variant');
+          });
+          toggle.classList.add('bg-surface-container', 'text-on-surface');
+          toggle.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // Node search highlighting
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.node-card').forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            card.style.opacity = '1';
+            card.style.filter = 'none';
+          } else {
+            card.style.opacity = '0.3';
+            card.style.filter = 'grayscale(1)';
+          }
+        });
+      });
+    })();
+  </script>
+</div></main></div></body></html>

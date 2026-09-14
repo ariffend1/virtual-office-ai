@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#5516be","surface-variant":"#d3e4fe","on-primary":"#ffffff","on-primary-container":"#7c839b","inverse-primary":"#bec6e0","on-primary-fixed-variant":"#3f465c","surface-container-low":"#eff4ff","on-surface":"#0b1c30","on-secondary":"#ffffff","tertiary-fixed":"#e9ddff","on-primary-fixed":"#131b2e","primary-container":"#131b2e","surface-container-high":"#dce9ff","inverse-surface":"#213145","on-tertiary-fixed":"#23005c","surface-tint":"#565e74","secondary-fixed-dim":"#4cd7f6","secondary":"#00687a","on-secondary-fixed":"#001f26","on-error":"#ffffff","surface-dim":"#cbdbf5","primary-fixed-dim":"#bec6e0","on-secondary-fixed-variant":"#004e5c","on-tertiary-container":"#9466ff","on-tertiary":"#ffffff","secondary-container":"#57dffe","tertiary":"#000000","error":"#ba1a1a","surface-bright":"#f8f9ff","error-container":"#ffdad6","outline-variant":"#c6c6cd","primary":"#000000","background":"#f8f9ff","on-background":"#0b1c30","tertiary-fixed-dim":"#d0bcff","surface-container":"#e5eeff","tertiary-container":"#23005c","on-secondary-container":"#006172","on-surface-variant":"#45464d","surface-container-highest":"#d3e4fe","on-error-container":"#93000a","secondary-fixed":"#acedff","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","outline":"#76777d","surface":"#f8f9ff","inverse-on-surface":"#eaf1ff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-dense":"0.75rem","space-lg":"1.25rem","gutter":"1rem","space-sm":"0.5rem","gutter-dense":"0.5rem","space-xl":"2rem","space-xs":"0.25rem","margin":"1.5rem","space-md":"0.75rem"},fontFamily:{"title-sm":["Inter"],"display-lg":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"code-sm":["JetBrains Mono"],"label-xs":["JetBrains Mono"],"body-md":["Inter"],"code-lg":["JetBrains Mono"],"metric-val":["JetBrains Mono"]},fontSize:{"title-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"500"}],"code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0","fontWeight":"400"}],"label-xs":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"400"}],"code-lg":["13px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"500"}],"metric-val":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col items-center justify-between py-space-md"><div class="flex flex-col items-center gap-space-md w-full"><button class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors" title="Agent Core Grid"><span class="material-symbols-outlined text-[20px]">hub</span></button><div class="w-8 h-px bg-surface-container-high"></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Systems Engineer (Arch-01)"><span class="font-code-sm text-code-sm font-semibold">SE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#f97316] ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Auditor Agent (SecOps)"><span class="font-code-sm text-code-sm font-semibold">AU</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#10b981] ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Deep Researcher"><span class="font-code-sm text-code-sm font-semibold">RE</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8b5cf6] ring-2 ring-surface-container-lowest"></span></button><button class="group relative w-10 h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center transition-colors" title="Astra Runtime Coordinator"><span class="font-code-sm text-code-sm font-semibold">AS</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#06b6d4] ring-2 ring-surface-container-lowest"></span></button></div></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Toggle Canvas Grid"><span class="material-symbols-outlined text-[20px]">grid_4x4</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Layer Tree / Node Hierarchy"><span class="material-symbols-outlined text-[20px]">account_tree</span></button><button class="w-10 h-10 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="System Settings"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-dense"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="CortxOS Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCleSJ_a7sxYlmMkSvKWqEIIQDs06bi9GFRJA2e5_mv7hstdJEapBKyRYt3v6tD4sIJgpxh6lpgpYdqpQncrgl1TElqS386MloSagCy2-2Qkechyu7TBtzUUh12uHKJhiuP4Slz3sQ-16qDctIJTj1KsYGGJLHufz4UnUn5fs8Fgfjj199n53MYncQw_59BdETTbz-YfcYiq80-qwFj7g1OPR2dcdBYwyLk01Gh1XMDddXcNXdfts4"/><span class="font-code-sm text-code-sm text-on-surface-variant">|</span><span class="font-title-sm text-title-sm text-on-surface font-semibold">SAMS Studio</span><span class="font-label-xs text-label-xs bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-mono">v2.4-PROD</span></div><nav class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg" data-active-classes="bg-primary-container text-on-primary font-medium rounded"><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="3d-workspace" href="#">3D Workspace</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="training-room" href="#">Training Room</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="knowledge-graph" href="#">Knowledge Graph</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-and-pipeline" href="#">Audit &amp; Pipeline</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="mission-dispatcher" href="#">Mission Dispatcher</a><a class="px-space-md py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="telemetry-and-gateway" href="#">Telemetry &amp; Gateway</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-1 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-1.5 mr-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span><span class="font-metric-val text-metric-val text-on-surface">4 ACTIVE</span></div><div class="flex items-center gap-1 mr-space-xs"><span class="font-label-xs text-label-xs px-1 py-0.5 rounded bg-[#f97316]/15 text-[#f97316] font-semibold">SE</span><span class="font-label-xs text-label-xs px-1 py-0.5 rounded bg-[#10b981]/15 text-[#10b981] font-semibold">AU</span><span class="font-label-xs text-label-xs px-1 py-0.5 rounded bg-[#8b5cf6]/15 text-[#8b5cf6] font-semibold">RE</span><span class="font-label-xs text-label-xs px-1 py-0.5 rounded bg-[#06b6d4]/15 text-[#06b6d4] font-semibold">AS</span></div><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">FPS:</span><span class="font-metric-val text-metric-val text-on-surface">60</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">LAT:</span><span class="font-metric-val text-metric-val text-on-surface">28ms</span><span class="text-outline-variant">•</span><span class="font-code-sm text-code-sm text-on-surface-variant">TOK:</span><span class="font-metric-val text-metric-val text-on-surface">48.2k</span><span class="font-label-xs text-label-xs text-on-surface-variant">($0.076)</span></div><div class="flex items-center bg-surface-container-low p-0.5 rounded-md"><button class="px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-primary text-on-primary">Auto</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Spot</button><button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">Manual</button></div><button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:opacity-90 transition-opacity" title="Agent Profile Settings"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></button></div></header><main class="relative w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-navigation / Breadcrumb & Status Bar -->
+<div class="w-full bg-surface-container-lowest shadow-sm px-margin py-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-on-surface-variant">
+<span>Observability</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">Live Telemetry &amp; Model Gateway</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface-variant font-label-xs text-label-xs font-medium uppercase tracking-wider">Mesh-V3</span>
+</div>
+<div class="flex items-center flex-wrap gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">Global Gateway: HEALTHY</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div>Uptime: <span class="font-code-sm text-code-sm font-medium text-on-surface">99.982%</span></div>
+<span class="text-outline-variant">•</span>
+<div>Swarm Spend Today: <span class="font-code-sm text-code-sm font-medium text-on-surface">$14.28</span> <span class="text-outline-variant">/ $50.00 Cap</span></div>
+<span class="text-outline-variant">•</span>
+<div>Active: <span class="font-code-sm text-code-sm font-medium text-on-surface">4 Agents</span>, <span class="font-code-sm text-code-sm font-medium text-on-surface">18 Worker Threads</span></div>
+</div>
+</div>
+<!-- Right Controls: Time Range & Live Polling -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-low p-0.5 rounded-lg shadow-sm">
+<button class="px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-surface-container-lowest text-on-surface shadow-sm transition-all">15m</button>
+<button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">1h</button>
+<button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">24h</button>
+<button class="px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors">7d</button>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-space-md py-1.5 rounded-lg">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono uppercase">STREAM 1.0s</span>
+</div>
+<button class="flex items-center gap-1 bg-primary text-on-primary px-space-md py-1.5 rounded font-body-sm text-body-sm font-medium hover:opacity-90 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Gateway Rules</span>
+</button>
+</div>
+</div>
+<!-- Main Observability Workspace Body -->
+<div class="p-margin flex flex-col gap-space-lg w-full">
+<!-- KPI Metric Cards Grid (4 Units) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md w-full">
+<!-- Card 1: Throughput & FPS -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Throughput &amp; Engine FPS</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">speed</span>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<div>
+<div class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">59.8</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant font-mono">p99: 58.4 FPS • Render: 16.4ms</div>
+</div>
+<!-- Mini SVG Sparkline -->
+<svg class="w-24 h-9 text-secondary overflow-visible" fill="none" viewbox="0 0 100 36">
+<path d="M0 24 Q 15 20, 25 22 T 50 12 T 75 16 T 100 8" stroke="currentColor" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 24 Q 15 20, 25 22 T 50 12 T 75 16 T 100 8 L 100 36 L 0 36 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-secondary font-mono">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+<span>+2.4% vs last window</span>
+</div>
+</div>
+<!-- Card 2: Total Tokens Streamed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Total Streamed Tokens</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">data_array</span>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<div>
+<div class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">1.84M</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant font-mono">In: 1.2M • Out: 640k</div>
+</div>
+<!-- Sparkline 2 -->
+<svg class="w-24 h-9 text-on-tertiary-container overflow-visible" fill="none" viewbox="0 0 100 36">
+<path d="M0 28 Q 20 22, 35 26 T 60 14 T 80 18 T 100 6" stroke="currentColor" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 28 Q 20 22, 35 26 T 60 14 T 80 18 T 100 6 L 100 36 L 0 36 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between font-label-xs text-label-xs text-on-surface-variant font-mono">
+<span class="text-on-surface font-medium">420 tok/sec sustained</span>
+<span class="text-on-secondary-container font-semibold">Mesh Bus: OK</span>
+</div>
+</div>
+<!-- Card 3: Inference Latency -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Average Inference Latency</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">timer</span>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<div>
+<div class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">28ms</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant font-mono">TTFT: 140ms • P95: 184ms</div>
+</div>
+<div class="h-9 flex items-end gap-1 px-1">
+<div class="w-1.5 bg-surface-container-high rounded-t h-4"></div>
+<div class="w-1.5 bg-surface-container-high rounded-t h-6"></div>
+<div class="w-1.5 bg-secondary rounded-t h-3"></div>
+<div class="w-1.5 bg-secondary rounded-t h-8"></div>
+<div class="w-1.5 bg-secondary rounded-t h-5"></div>
+<div class="w-1.5 bg-secondary rounded-t h-7"></div>
+</div>
+</div>
+<div class="flex items-center gap-1 font-label-xs text-label-xs text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span>
+<span>Cache hit rate: <strong class="text-on-surface font-semibold">84.2%</strong></span>
+</div>
+</div>
+<!-- Card 4: Cost & Spend Cap -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Session Spend &amp; Run Cap</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_balance_wallet</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline justify-between">
+<div class="font-display-lg text-display-lg text-on-surface font-semibold tracking-tight">$0.076</div>
+<span class="font-label-xs text-label-xs bg-surface-container-low px-1.5 py-0.5 rounded font-mono text-on-surface font-semibold">RUN #4102</span>
+</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant font-mono mt-0.5">Session: $2.41 • Proj. Month: $340.00</div>
+</div>
+<!-- Micro Progress Bar -->
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full transition-all duration-500" style="width: 28.5%"></div>
+</div>
+</div>
+</div>
+<!-- Main Dashboard Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg w-full items-start">
+<!-- LEFT COLUMN: Multi-Agent Model Routing Gateway & Fallback Matrix (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Connected AI Model Endpoints Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="px-space-lg py-space-md bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">alt_route</span>
+<div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Active Model Routing Gateway</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dynamic proxy cluster mapping swarm responsibilities to multi-cloud model endpoints</p>
+</div>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-1 rounded text-on-surface font-mono">ED25519 VERIFIED</span>
+</div>
+<!-- Model Table / Cards Container -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<!-- Endpoint 1: Systems Engineer -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm hover:shadow transition-shadow flex flex-col gap-space-xs">
+<div class="flex items-start justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center font-code-sm text-code-sm font-semibold text-on-surface shadow-xs">SE</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Systems Engineer</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1 py-0.5 rounded font-mono text-on-surface-variant">Arch-01</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">Endpoint: <strong class="text-on-surface">Claude 3.5 Sonnet (20241022)</strong></div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span class="font-label-xs text-label-xs text-on-surface font-semibold uppercase">Optimal</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs mt-space-xs bg-surface-container-low p-space-sm rounded font-code-sm text-code-sm">
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Provider</div>
+<div class="text-on-surface font-medium truncate">Anthropic Direct</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">p50 Latency</div>
+<div class="text-on-surface font-medium">380ms</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Cost / 1M Tok</div>
+<div class="text-on-surface font-medium">$3.00 in / $15 out</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Fallback Plan</div>
+<div class="text-secondary font-medium truncate">Claude 3.5 Haiku</div>
+</div>
+</div>
+</div>
+<!-- Endpoint 2: Auditor / Planner -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm hover:shadow transition-shadow flex flex-col gap-space-xs">
+<div class="flex items-start justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center font-code-sm text-code-sm font-semibold text-on-surface shadow-xs">AU</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Auditor Agent</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1 py-0.5 rounded font-mono text-on-surface-variant">SecOps-02</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">Endpoint: <strong class="text-on-surface">GPT-4o (Omni-0806)</strong></div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span class="font-label-xs text-label-xs text-on-surface font-semibold uppercase">Optimal</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs mt-space-xs bg-surface-container-low p-space-sm rounded font-code-sm text-code-sm">
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Provider</div>
+<div class="text-on-surface font-medium truncate">OpenAI Azure</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">p50 Latency</div>
+<div class="text-on-surface font-medium">290ms</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Cost / 1M Tok</div>
+<div class="text-on-surface font-medium">$2.50 in / $10 out</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Fallback Plan</div>
+<div class="text-secondary font-medium truncate">Mistral Large-2</div>
+</div>
+</div>
+</div>
+<!-- Endpoint 3: Deep Researcher -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm hover:shadow transition-shadow flex flex-col gap-space-xs">
+<div class="flex items-start justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center font-code-sm text-code-sm font-semibold text-on-surface shadow-xs">RE</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Deep Researcher</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1 py-0.5 rounded font-mono text-on-surface-variant">RAG-Synth</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">Endpoint: <strong class="text-on-surface">Sonar Reasoning Pro</strong></div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-xs text-label-xs text-on-surface font-semibold uppercase">Active (Web-Index)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs mt-space-xs bg-surface-container-low p-space-sm rounded font-code-sm text-code-sm">
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Provider</div>
+<div class="text-on-surface font-medium truncate">Perplexity Router</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">p50 Latency</div>
+<div class="text-on-surface font-medium">620ms</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Cost / 1M Tok</div>
+<div class="text-on-surface font-medium">$5.00 in / $18 out</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Fallback Plan</div>
+<div class="text-secondary font-medium truncate">Claude 3.5 Sonnet</div>
+</div>
+</div>
+</div>
+<!-- Endpoint 4: Astra Runtime -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm hover:shadow transition-shadow flex flex-col gap-space-xs">
+<div class="flex items-start justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center font-code-sm text-code-sm font-semibold text-on-surface shadow-xs">AS</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Astra Runtime</span>
+<span class="font-label-xs text-label-xs bg-surface-container px-1 py-0.5 rounded font-mono text-on-surface-variant">Core-Orch</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">Endpoint: <strong class="text-on-surface">Gemini 1.5 Pro Flash</strong></div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-[#06b6d4]"></span>
+<span class="font-label-xs text-label-xs text-on-surface font-semibold uppercase">Ultra-Low Latency</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs mt-space-xs bg-surface-container-low p-space-sm rounded font-code-sm text-code-sm">
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Provider</div>
+<div class="text-on-surface font-medium truncate">Google Vertex AI</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">p50 Latency</div>
+<div class="text-on-surface font-medium">195ms</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Cost / 1M Tok</div>
+<div class="text-on-surface font-medium">$0.35 in / $1.05 out</div>
+</div>
+<div>
+<div class="font-label-xs text-label-xs text-on-surface-variant uppercase">Fallback Plan</div>
+<div class="text-secondary font-medium truncate">GPT-4o Mini</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Gateway Routing & Policy Configuration -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Gateway Dynamic Routing Controls</h3>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">HOT-RELOAD ENABLED</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Slider Control 1 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-sm text-body-sm font-medium text-on-surface">Traffic Weighting / Load Balancing</label>
+<span class="font-code-sm text-code-sm font-semibold text-secondary">85% Primary / 15% Shadow</span>
+</div>
+<input class="w-full h-1 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" type="range" value="85"/>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Autonomous canary traffic duplication to benchmark new release weights</span>
+</div>
+<!-- Slider Control 2 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-body-sm text-body-sm font-medium text-on-surface">Semantic Caching Threshold</label>
+<span class="font-code-sm text-code-sm font-semibold text-on-surface">0.92 Cosine Sim</span>
+</div>
+<input class="w-full h-1 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="50" type="range" value="92"/>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Matches above threshold return zero-latency cached AST responses</span>
+</div>
+</div>
+<!-- Policy Toggles Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm px-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Automatic Fallback on 429/5xx</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Circuit breaker activates &lt; 35ms</span>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full relative flex items-center p-0.5 cursor-pointer" title="Toggle Auto Fallback">
+<span class="w-4 h-4 bg-on-primary rounded-full translate-x-5 transition-transform"></span>
+</button>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm px-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Rate-Limit Exponential Backoff</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">Jitter algorithm base: 150ms</span>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full relative flex items-center p-0.5 cursor-pointer" title="Toggle Exponential Backoff">
+<span class="w-4 h-4 bg-on-primary rounded-full translate-x-5 transition-transform"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Live Telemetry Heatmaps & Token Cost Analytics (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Agent-by-Agent Token Consumption Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">pie_chart</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Swarm Token Allocation</h3>
+</div>
+<span class="font-metric-val text-metric-val text-on-surface">83,600 Total</span>
+</div>
+<!-- Stacked Proportion Bar -->
+<div class="w-full flex h-3 rounded-full overflow-hidden gap-0.5 bg-surface-container-high p-0.5">
+<div class="bg-[#f97316] h-full rounded-l" style="width: 58%" title="Systems Engineer: 58%"></div>
+<div class="bg-[#10b981] h-full" style="width: 22%" title="Auditor / Planner: 22%"></div>
+<div class="bg-[#8b5cf6] h-full" style="width: 15%" title="Deep Researcher: 15%"></div>
+<div class="bg-[#06b6d4] h-full rounded-r" style="width: 5%" title="Astra Runtime: 5%"></div>
+</div>
+<!-- Breakdown Legend List -->
+<div class="flex flex-col gap-space-xs font-code-sm text-code-sm">
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#f97316]"></span>
+<span class="text-on-surface font-medium">Systems Engineer</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-on-surface-variant font-mono">48,210 tok</span>
+<span class="font-metric-val text-metric-val text-on-surface w-12 text-right">57.7%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+<span class="text-on-surface font-medium">Auditor / Planner</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-on-surface-variant font-mono">18,400 tok</span>
+<span class="font-metric-val text-metric-val text-on-surface w-12 text-right">22.0%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#8b5cf6]"></span>
+<span class="text-on-surface font-medium">Deep Researcher</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-on-surface-variant font-mono">12,850 tok</span>
+<span class="font-metric-val text-metric-val text-on-surface w-12 text-right">15.4%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#06b6d4]"></span>
+<span class="text-on-surface font-medium">Astra Runtime</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="text-on-surface-variant font-mono">4,140 tok</span>
+<span class="font-metric-val text-metric-val text-on-surface w-12 text-right">4.9%</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between font-label-xs text-label-xs text-on-surface-variant">
+<span>Aggregated Cost this run: <strong class="text-on-surface font-semibold font-mono">$0.076</strong></span>
+<span class="text-secondary font-mono">84.2% Cache Hit Saved ~$0.29</span>
+</div>
+</div>
+<!-- Real-Time Trace Waterfall & Log Stream Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">terminal</span>
+<span>Real-Time Gateway Ingress Waterfall</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono">LIVE TRACE</span>
+</div>
+</div>
+<!-- Trace Waterfall Entries -->
+<div class="p-space-sm flex flex-col gap-1.5 font-code-sm text-code-sm bg-[#090d16] text-[#eff4ff]">
+<!-- Entry 1 -->
+<div class="p-2 rounded bg-[#0f172a] hover:bg-[#1e293b] transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-[#10b981]/20 text-[#10b981] font-bold text-[10px]">200 OK</span>
+<span class="text-[#94a3b8]">14:28:02.190</span>
+<span class="text-[#38bdf8] font-semibold">POST /v1/messages</span>
+</div>
+<span class="text-[#94a3b8] text-[10px]">214ms</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[#cbd5e1] pl-1">
+<span>Agent: <strong>Arch-01</strong> [Claude-3-5-Sonnet]</span>
+<span class="text-[#34d399] font-mono">PROMPT_CACHE_HIT (91.2%)</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="p-2 rounded bg-[#0f172a] hover:bg-[#1e293b] transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-[#38bdf8]/20 text-[#38bdf8] font-bold text-[10px]">304 NOT-MOD</span>
+<span class="text-[#94a3b8]">14:28:01.840</span>
+<span class="text-[#38bdf8] font-semibold">GET /v2/kg/traversal</span>
+</div>
+<span class="text-[#94a3b8] text-[10px]">8ms</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[#cbd5e1] pl-1">
+<span>Agent: <strong>SecOps-02</strong> [Local-Graph]</span>
+<span class="text-[#a78bfa] font-mono">ETag Match (Cache Hit)</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="p-2 rounded bg-[#0f172a] hover:bg-[#1e293b] transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-[#10b981]/20 text-[#10b981] font-bold text-[10px]">200 OK</span>
+<span class="text-[#94a3b8]">14:28:00.320</span>
+<span class="text-[#38bdf8] font-semibold">POST /v1/chat/completions</span>
+</div>
+<span class="text-[#94a3b8] text-[10px]">480ms</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[#cbd5e1] pl-1">
+<span>Agent: <strong>RAG-Synth</strong> [Sonar-Pro]</span>
+<span class="text-[#fde047] font-mono">Web Grounding (12 Citations)</span>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="p-2 rounded bg-[#0f172a] hover:bg-[#1e293b] transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 rounded bg-[#10b981]/20 text-[#10b981] font-bold text-[10px]">200 OK</span>
+<span class="text-[#94a3b8]">14:27:59.040</span>
+<span class="text-[#38bdf8] font-semibold">POST /mesh/orchestration</span>
+</div>
+<span class="text-[#94a3b8] text-[10px]">195ms</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[#cbd5e1] pl-1">
+<span>Agent: <strong>Core-Orch</strong> [Gemini-Flash]</span>
+<span class="text-[#38bdf8] font-mono">Ed25519 Signed: valid</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Governance & Operational Actions Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Gateway Operational Directives</span>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface px-space-sm py-2 rounded text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">cleaning_services</span>
+<span>Flush Cache</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface px-space-sm py-2 rounded text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">download</span>
+<span>OTel JSON</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface px-space-sm py-2 rounded text-body-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">notification_add</span>
+<span>Set Alert ($25)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic micro-interaction for active time interval pills
+  document.querySelectorAll('button[class*="15m"], button[class*="1h"], button[class*="24h"], button[class*="7d"]').forEach(button => {
+    button.addEventListener('click', function() {
+      const parent = this.parentElement;
+      parent.querySelectorAll('button').forEach(btn => {
+        btn.className = "px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors";
+      });
+      this.className = "px-space-sm py-1 rounded font-code-sm text-code-sm font-medium bg-surface-container-lowest text-on-surface shadow-sm transition-all";
+    });
+  });
+</script></main></div></body></html>
